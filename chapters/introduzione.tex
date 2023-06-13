@@ -16,50 +16,52 @@
 Nell'attuale panorama delle fiere e degli eventi commerciali, le aziende partecipanti hanno manifestato un crescente interesse nell'innovazione della promozione 
 dei propri prodotti. Attualmente, la promozione avviene principalmente attraverso la distribuzione di materiale pubblicitario, come brochure, volantini e cataloghi, 
 lasciando al visitatore il compito di informarsi autonomamente sui prodotti offerti dai vari espositori.\\
-Con l'obiettivo di rendere l'esperienza del visitatore più semplificata e innovativa, durante il mio tirocinio presso l'azienda AdMaioraStudio ho avuto 
-l'opportunità di sviluppare un prototipo di web app. Questa web app consente agli espositori di promuovere i propri prodotti in maniera innovativa, 
+In questa tesi verrà descritto lo sviluppo di una web app che consente agli espositori di promuovere i propri prodotti in maniera innovativa, 
 offrendo ai visitatori la possibilità di fruire video on demand relativi ai prodotti esposti da vari espositori in diverse fiere mondiali.\\
-L'obiettivo principale di questa esperienza è stato la realizzazione di un Proof of Concept (POC) al fine di studiare e verificare la fattibilità di 
+L'obiettivo principale è stato quello di realizzare un Proof of Concept (POC) al fine di studiare e verificare la fattibilità di 
 un prodotto di questo tipo. Attraverso l'app sviluppata, gli espositori hanno la possibilità di caricare i propri video relativi ai prodotti esposti, 
-rendendoli successivamente disponibili per la visualizzazione on demand da parte dei visitatori.\\
-Questo progetto rappresenta un passo avanti verso l'innovazione nella promozione dei prodotti nelle fiere, offrendo ai visitatori un'esperienza interattiva 
-e coinvolgente. Durante lo sviluppo del prototipo, ho avuto l'opportunità di applicare le competenze acquisite nel corso di studi, 
-approfondendo la programmazione in \lstinline[language={[Sharp]C}]|C#| per il backend e utilizzando tecnologie come Azure Media Service e React per il frontend.\\
-Attraverso questo lavoro di stage, si è mirato non solo a creare una soluzione concreta per i visitatori delle fiere, ma anche a gettare le basi per ulteriori 
-sviluppi e miglioramenti futuri nel campo della promozione innovativa dei prodotti attraverso l'utilizzo dei video on demand.\\
+rendendoli successivamente disponibili per la visualizzazione on demand da parte dei visitatori.
+Rappresenta un passo avanti verso l'innovazione nella promozione dei prodotti nelle fiere, offrendo ai visitatori un'esperienza interattiva 
+e coinvolgente. \\
+L'applicazione è stata sviluppata utilizzando come linguaggio di backend C, per lo sviluppo del frontend il framework JavaScript React,~\footnote{\url{https://reactjs.org/}}  
+mentre per la gestione dell'archivazione e streaming dei video sono stati utilizzati i servizi di Microsoft Azure: Media Service e Account Storage.~\footnote{\url{https://azure.microsoft.com/}}\\
+L'obbiettivo principlale di questo POC, è stato quello di studiare e verificare la fattibilità di un prodotto di questo tipo.\\
 
-
+\clearpage
 \section{L'azienda}
 
-AdMaioraStudio è un'azienda di consulenza informatica che si occupa di sviluppo software, consulenza e formazione.\\
-L'azienda è nata nel 2013 inizialmente nell'ambito mobile, successivamente ha ampliato il proporio target transitando nello sviluppo software a tutto tondo.\\
-AdMaioraStudio è attualmente composta da 7 sviluppatori, ognuno del quale ha competenze di sviluppo Full Stack.\\
-Il target di clienti alla quale l'azienda si rivolge sono le piccole e medie aziende nel ramo industriale e dei servizi.\\
-
-\section{Obbietti della tesi}
-//TODO
-//obbiettivi della tesi\\
-
+Ad Maiora Studio è una software house che ha visto la luce nel 2013 nel campo del mobile e che è cresciuta fino a diventare un'azienda a tutti gli effetti.\\
+La sua missione è centrata sull'attenzione dei clienti e lo sviluppo di software moderni, scalabili e progettati ad hoc per soddisfare le loro esigenze. \\
+I prodotti sviluppati da Ad Maiora Studio si basano sulle più recenti tecnologie, integrano componenti e librerie eterogenee e pongono una forte enfasi sull'esperienza utente
+ e l'interfaccia grafica.\\
+L'azienda si distingue per l'approccio continuativo di assistenza ai clienti, garantendo un partner sempre accessibile e in grado di rispondere tempestivamente alle richieste. \\
+Ad Maiora Studio si concentra principalmente su piccole e medie imprese operanti nei settori industriale e dei servizi, incoraggiandole a intraprendere un percorso di modernizzazione
+ iniziando dal software.\\
+  L'obiettivo è supportare efficacemente l'adattamento alle mutevoli esigenze di mercato e di business, fornendo strumenti innovativi e personalizzati, 
+  che rappresentano il cuore dell'attività di Ad Maiora Studio.\\
+Grazie alla competenza Full Stack del team di sviluppatori, l'azienda è in grado di realizzare ogni tipo di software, 
+coprendo l'intero processo di sviluppo, dalla progettazione all'implementazione.\\
+La qualità delle soluzioni software offerte è sempre un punto focale, al fine di soddisfare appieno le aspettative dei clienti e garantire il massimo risultato.
 
 \section{Strutta della tesi}
 
 \begin{description}
-    \item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive i fondamenti teorici
+    \item[{\hyperref[cap:fondamentiteorici]{Il secondo capitolo}}] descrive i fondamenti teorici
     
-    \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] descrive l'analisi dei requisiti
+    \item[{\hyperref[cap:analisi-requisiti]{Il terzo capitolo}}] descrive l'analisi dei requisiti
     
-    \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce la progettazione
+    \item[{\hyperref[cap:progettazione]{Il quarto capitolo}}] approfondisce la progettazione
     
-    \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce l'implementazione
+    \item[{\hyperref[cap:implementazione]{Il quinto capitolo}}] approfondisce l'implementazione
     
-    \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce la fase di testing e validazione
+    \item[{\hyperref[cap:testing]{Il sesto capitolo}}] approfondisce la fase di testing e validazione
     
     \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive le conclusioni e i possibili sviluppi futuri
 \end{description}
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
-\begin{itemize}
-	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
-	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
-\end{itemize}
+% Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
+% \begin{itemize}
+% 	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
+% 	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
+% 	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
+% \end{itemize}
