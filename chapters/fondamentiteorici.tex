@@ -31,12 +31,29 @@ Esistono due principali categorie di streaming video: live streaming e video on 
     \item \textbf{Live streaming} è simile alle trasmissioni televisive tradizionali, in cui gli utenti guardano i contenuti in tempo reale. Viene utilizzato per trasmettere eventi in 
     diretta come ad esempio concerti, eventi sportivi ecc.., vengono anch'essi leggermente compressi e memorizzati su un server, ma vengono trasmessi in tempo reale agli utenti che ne fanno richiesta.
     \end{itemize}
-\subsection{Protocolli e tenclogie di streaming video}
+\subsection{Protocolli e tecnologie di streaming video}
 Per la trasmissione di contenuti multimediali, esistono diversi protocolli e tecnologie, sotto elencati:
 
 \begin{itemize}
 
-    \item \textbf{HTTP Live Streaming} o HLS è un protocollo di streaming s
+    \item \textbf{HTTP Live Streaming} o HLS è un protocollo di streaming sviluppato da Apple nel 2009, permette la trasmissione in streaming di contenuti multimediali,
+    divide il contenuto in file HTTP più piccoli e scaricabili, chiamati segmenti e li distribuisce ai dispositivi client tramite HTTP.\\
+    HLS è un protocollo di streaming adattivo, ovvero il client può cambiare la qualità del video in base alla larghezza di banda disponibile senza interrompere la riproduzione.
+    È nativamente compatibile con i dispotivi Apple ed è supportato dalla maggior parte dei dispositivi e browser che supportano HTTP, non richiedendo l'installazione di plugin aggiuntivi.\\
+
+    \item \textbf{Dynamic Adaptive Streaming over HTTP} o DASH è un protocollo di streaming sviluppato dal Moving Picture Experts Group (MPEG), permette la trasmissione di contenuti multimediali
+    attraverso il protocollo HTTP.\\
+    DASH suddivide il contenuto in segmenti e li trasmette ai dispositivi client tramite HTTP, permettendo un adattamento dinamico della qualità del video in base alla larghezza di banda disponibile.
+    Offre una vasta gamma di scekta del formato video e codec, permettendo di scegliere il formato più adatto per il dispositivo client.\\
+
+    \item \textbf{Real Time Messaging Protocol} o RTMP è un protocollo di streaming sviluppato da Adobe nel 2012, permette la trasmissione di contenuti multimediali in tempo reale,
+    divide il contenuto in pacchetti e li trasmette ai dispositivi client tramite TCP o UDP, consente una comunicazione bidirezionale tra il server e il dispositivo client utilizzando un flusso continuo.\\
+    RTMP è un protocollo di streaming non adattivo, ovvero non permette di cambiare la qualità del video in base alla larghezza di banda disponibile, ma permette di 
+    trasmettere contenuti in tempo reale con una bassa latenza.\\
+    Dal 2020, con la deprecazione di Adobe Flash Player, RTMP è stato sostituito da protocolli di streaming adattivi come HLS e DASH.\\
+
+
+
     \end{itemize}
 
 
