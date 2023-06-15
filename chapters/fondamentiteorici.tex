@@ -51,13 +51,52 @@ Per la trasmissione di contenuti multimediali, esistono diversi protocolli e tec
     RTMP è un protocollo di streaming non adattivo, ovvero non permette di cambiare la qualità del video in base alla larghezza di banda disponibile, ma permette di 
     trasmettere contenuti in tempo reale con una bassa latenza.\\
     Dal 2020, con la deprecazione di Adobe Flash Player, RTMP è stato sostituito da protocolli di streaming adattivi come HLS e DASH.\\
-
-
-
     \end{itemize}
 
+\section{I problemi dello streaming}
+\subsection{Latenza}
+La latenza è il tempo di ritardo tra l'invio di un pacchetto e la ricezione di una risposta, è un problema comune nello streaming video, in quanto può causare ritardi nella riproduzione del video.
+Può essere causata da diversi fattori, come ad esempio la velocità delle connessione, la distanza tra il server e il dispositivo client, la compressione del video e la capacità di elaborazione del dispositivo client.
+Per ridurre la latenza si utilizzano protocolli efficenti in base alla tipologia del contenuto.\\
+
+\subsection{Qualità del video}
+Un aspetto importante dello streaming video è la qualità del video, essa dipende da diversi fattori, i due principali sono la compressione e la codifica del video.\\
+La compressione è un processo che riduce la dimensione del file video, rimuovendo le informazioni ridondanti o non necessarie, permettendo una trasmissione più rapida ed efficente del video.
+Può essere di due tipi: lossless e lossy.\\
+La compressione lossless è un processo che riduce la dimensione del file video senza perdita di qualità, mentre la compressione lossy è un processo che riduce
+ la dimensione del file video con una leggera perdita di qualità.\\ 
+
+La codifica è un processo che converte il video da un formato a un altro formato, consentendo la trasmissione e riproduzione dei video su diversi dispositivi e piattaforme.
+Esistono diversi formati video, i più comuni sono: H.264, H.265, VP9 e AV1.\\
+
+
+\subsection{Sicurezza}
+La sicurezza è un aspetto importante dello streaming video, in quanto i contenuti multimediali possono essere facilmente copiati e distribuiti senza autorizzazione.
+Per proteggere i contenuti multimediali, esistono diversi metodi di protezione, i più comuni sono: Digital Rights Management (DRM) e Watermarking.\\
+Il DRM è un metodo di protezione che protegge i contenuti multimediali da copie non autorizzate, permette di proteggere i contenuti multimediali con una chiave di protezione,
+che viene utilizzata per decodificare i contenuti multimediali.\\
+Il Watermarking è un metodo di protezione che protegge i contenuti multimediali da copie non autorizzate, permette di proteggere i contenuti multimediali con un watermark, ovvero un segno distintivo (come ad esempio un logo), 
+che viene utilizzato per identificare il propietrario dei contenuti multimediali.\\
+
+\subsection{Gestione del carico del server}
+I server di streaming possono ricevere un elevato numero di richieste da tutto il mondo, questo può causare dei problemi di distribuzione del contenuto 
+alle richieste più distanti geograficamente dal server, in quanto i pacchetti impiegano più tempo a raggiungere il dispositivo client e quindi causano ritardi nella riproduzione del video.\\
+Inoltre per eventi particolarmente popolari come ad esempio eventi sportivi, il numero di richieste può aumentare notevolmente, causando un sovraccarico del server e quindi ritardi nella riproduzione
+del video, in quanto la banda disponibile dal server è limitata e viene distribuita a tutti i dispositivi client.\\
+Per risolvere questi problemi si utilizzano dei servizi di Content Delivery Network (CDN), ovvero una rete di server distribuiti in tutto il mondo, che permette di distribuire i contenuti multimediali
+ai dispositivi client più vicini geograficamente, riducendo la latenza e il carico del server.\\
+Mentre per la gestione del carico del server, si utilizzano dei servizi di Load Balancing, ovvero dei servizi di bilanciamento di carico, come il bilanciamento di carico di rete (NLB) o il 
+bilanciamento di carico applicativo (ALB), che permette di distribuire il traffico più efficentemente tra i server, riducendo il carico del server.\\
+Inoltre per gestire i picchi di richieste, si utilizzano infrastruttre server scalabili basate su cloud, come ad esempio Azure Media Services di Microsoft, che permette di scalare automaticamente le risorse di
+server e di rete in base alle esigenze del traffico di streaming, mantenendo il servizio sempre disponibile e riducendo i costi di gestione.\\
 
 \section{Tecnlogie utilizzate}
+Per la realizzazione sono state utilizzate le seguenti tecnologie:
+\subsection{React}
+React 
+\subsection{C\texttt{\#}}
+
+\subsection{Azure}
 
 \section{Archittetura di una webapp}
 
