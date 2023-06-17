@@ -5,11 +5,11 @@
 \section{Concetti di video on demand e streaming}
 Video on demand (tradotto come video su richiesta) o VOD, è un sistema che permette di accedere a contenuti multimediali(video, audio, immagini) 
 in qualsiasi momento e in qualsiasi luogo tramite una connessione internet.
-Contrariamente alla trasmissione televisiva tradizionale, nella quale gli utenti sono limitati da un palinsesto prefedinito, 
+Contrariamente alla trasmissione televisiva tradizionale, nella quale gli utenti sono limitati da un palinsesto predefinito, 
 il VOD dà la possibilità agli utenti di scegliere quale contenuto guardare e quando usufruirne.\\
 Nel contesto della webapp sviluppata, questo concetto ha una funzione chiave, infatti consente agli utenti di accedere a una vasta gamma di selezione video riguardanti 
-i prodotti esposti nelle fiere mondilali, 
-permettendo di scegliere i video di loro interesse in base alle loro preferenze e neccessità, eliminando le limitazioni spazio-temporali delle fiere fisiche.\\
+i prodotti esposti nelle fiere mondiali, 
+permettendo di scegliere i video di loro interesse in base alle loro preferenze e necessità, eliminando le limitazioni spazio-temporali delle fiere fisiche.\\
 Nel corso della tesi, verranno analizzate le caratteristiche e le sfide associate all'implementazione del video on demand nella webapp, comprese le strategie 
 di gestione e organizzazione dei contenuti, nonché la scalabilità e la qualità dello streaming per garantire un'esperienza fluida e coinvolgente per gli utenti.
 \subsection{Tipologie di video on demand}
@@ -19,12 +19,12 @@ Esistono diverse tipologie di video on demand, sotto elencate:
     \item \textbf{Subscription VOD} ovvero i servizi con un canone periodico come ad esempio Netflix, Amazon Prime Video ecc..\\
     \item \textbf{Transactional VOD} ossia servizi che permettono di acquistare o noleggiare contenuti, come ad esempio Google Play, Apple TV, Chili ecc..\\
     \item \textbf{Advertising VOD} ossia servizi gratuiti che mostrano annunci pubblicitari durante la riproduzione dei contenuti, come ad esempio Youtube, RaiPlay e Mediaset Play\\
-    \item \textbf{Premium VOD} ovvero la trasmissione di contenuti Premium, come antemprime cinematografiche, eventi sportivi ecc.., proposti da piattaforme come ad esempio Curzon Cinemas\\
+    \item \textbf{Premium VOD} ovvero la trasmissione di contenuti Premium, come anteprime cinematografiche, eventi sportivi ecc.., proposti da piattaforme come ad esempio Curzon Cinemas\\
 \end{itemize}
 
-\subsection{Concetti di streming video}
+\subsection{Concetti di streaming video}
 Lo streaming video è un metodo di trasmissione di dati multimediali, in particolare di video e audio.
-Esistono due principali categorie di streaming video: live streaming e video on demand.\\
+Esistono due principali categorie di streaming video:\\
 \begin{itemize}
     \item \textbf{Video on demand} è la trasmissione di contenuti pre-registrati, come ad esempio film, serie TV, documentari ecc.., i quali vengono compressi e memorizzati su un server come file,
     e vengono trasmessi agli utenti che ne fanno richiesta senza la necessità che il contenuto venga scaricato sul dispositivo dell'utente. Infatti i dati ricevuti dalla richiesta vengono decompressi e riprodotti in tempo reale.
@@ -39,12 +39,12 @@ Per la trasmissione di contenuti multimediali, esistono diversi protocolli e tec
     \item \textbf{HTTP Live Streaming} o HLS è un protocollo di streaming sviluppato da Apple nel 2009, permette la trasmissione in streaming di contenuti multimediali,
     divide il contenuto in file HTTP più piccoli e scaricabili, chiamati segmenti e li distribuisce ai dispositivi client tramite HTTP.\\
     HLS è un protocollo di streaming adattivo, ovvero il client può cambiare la qualità del video in base alla larghezza di banda disponibile senza interrompere la riproduzione.
-    È nativamente compatibile con i dispotivi Apple ed è supportato dalla maggior parte dei dispositivi e browser che supportano HTTP, non richiedendo l'installazione di plugin aggiuntivi.\\
+    È nativamente compatibile con i dispositivi Apple ed è supportato dalla maggior parte dei dispositivi e browser che supportano HTTP, non richiedendo l'installazione di plugin aggiuntivi.\\
 
     \item \textbf{Dynamic Adaptive Streaming over HTTP} o DASH è un protocollo di streaming sviluppato dal Moving Picture Experts Group (MPEG), permette la trasmissione di contenuti multimediali
     attraverso il protocollo HTTP.\\
     DASH suddivide il contenuto in segmenti e li trasmette ai dispositivi client tramite HTTP, permettendo un adattamento dinamico della qualità del video in base alla larghezza di banda disponibile.
-    Offre una vasta gamma di scekta del formato video e codec, permettendo di scegliere il formato più adatto per il dispositivo client.\\
+    Offre una vasta gamma di scelta del formato video e codec, permettendo di scegliere il formato più adatto per il dispositivo client.\\
 
     \item \textbf{Real Time Messaging Protocol} o RTMP è un protocollo di streaming sviluppato da Adobe nel 2012, permette la trasmissione di contenuti multimediali in tempo reale,
     divide il contenuto in pacchetti e li trasmette ai dispositivi client tramite TCP o UDP, consente una comunicazione bidirezionale tra il server e il dispositivo client utilizzando un flusso continuo.\\
@@ -57,15 +57,14 @@ Per la trasmissione di contenuti multimediali, esistono diversi protocolli e tec
 \subsection{Latenza}
 La latenza è il tempo di ritardo tra l'invio di un pacchetto e la ricezione di una risposta, è un problema comune nello streaming video, in quanto può causare ritardi nella riproduzione del video.
 Può essere causata da diversi fattori, come ad esempio la velocità delle connessione, la distanza tra il server e il dispositivo client, la compressione del video e la capacità di elaborazione del dispositivo client.
-Per ridurre la latenza si utilizzano protocolli efficenti in base alla tipologia del contenuto.\\
+Per ridurre la latenza si utilizzano protocolli efficienti in base alla tipologia del contenuto.\\
 
 \subsection{Qualità del video}
 Un aspetto importante dello streaming video è la qualità del video, essa dipende da diversi fattori, i due principali sono la compressione e la codifica del video.\\
-La compressione è un processo che riduce la dimensione del file video, rimuovendo le informazioni ridondanti o non necessarie, permettendo una trasmissione più rapida ed efficente del video.
+La compressione è un processo che riduce la dimensione del file video, rimuovendo le informazioni ridondanti o non necessarie, permettendo una trasmissione più rapida ed efficiente del video.
 Può essere di due tipi: lossless e lossy.\\
 La compressione lossless è un processo che riduce la dimensione del file video senza perdita di qualità, mentre la compressione lossy è un processo che riduce
- la dimensione del file video con una leggera perdita di qualità.\\ 
-
+La dimensione del file video con una leggera perdita di qualità.\\ 
 La codifica è un processo che converte il video da un formato a un altro formato, consentendo la trasmissione e riproduzione dei video su diversi dispositivi e piattaforme.
 Esistono diversi formati video, i più comuni sono: H.264, H.265, VP9 e AV1.\\
 
@@ -76,7 +75,7 @@ Per proteggere i contenuti multimediali, esistono diversi metodi di protezione, 
 Il DRM è un metodo di protezione che protegge i contenuti multimediali da copie non autorizzate, permette di proteggere i contenuti multimediali con una chiave di protezione,
 che viene utilizzata per decodificare i contenuti multimediali.\\
 Il Watermarking è un metodo di protezione che protegge i contenuti multimediali da copie non autorizzate, permette di proteggere i contenuti multimediali con un watermark, ovvero un segno distintivo (come ad esempio un logo), 
-che viene utilizzato per identificare il propietrario dei contenuti multimediali.\\
+che viene utilizzato per identificare il proprietario dei contenuti multimediali.\\
 
 \subsection{Gestione del carico del server}
 I server di streaming possono ricevere un elevato numero di richieste da tutto il mondo, questo può causare dei problemi di distribuzione del contenuto 
@@ -86,18 +85,28 @@ del video, in quanto la banda disponibile dal server è limitata e viene distrib
 Per risolvere questi problemi si utilizzano dei servizi di Content Delivery Network (CDN), ovvero una rete di server distribuiti in tutto il mondo, che permette di distribuire i contenuti multimediali
 ai dispositivi client più vicini geograficamente, riducendo la latenza e il carico del server.\\
 Mentre per la gestione del carico del server, si utilizzano dei servizi di Load Balancing, ovvero dei servizi di bilanciamento di carico, come il bilanciamento di carico di rete (NLB) o il 
-bilanciamento di carico applicativo (ALB), che permette di distribuire il traffico più efficentemente tra i server, riducendo il carico del server.\\
-Inoltre per gestire i picchi di richieste, si utilizzano infrastruttre server scalabili basate su cloud, come ad esempio Azure Media Services di Microsoft, che permette di scalare automaticamente le risorse di
+bilanciamento di carico applicativo (ALB), che permette di distribuire il traffico più efficientemente tra i server, riducendo il carico del server.\\
+Inoltre per gestire i picchi di richieste, si utilizzano infrastrutture server scalabili basate su cloud, come ad esempio Azure Media Services di Microsoft, che permette di scalare automaticamente le risorse di
 server e di rete in base alle esigenze del traffico di streaming, mantenendo il servizio sempre disponibile e riducendo i costi di gestione.\\
 
-\section{Tecnlogie utilizzate}
+\section{Tecnologie utilizzate}
 Per la realizzazione sono state utilizzate le seguenti tecnologie:
 \subsection{React}
-React 
+React è una libreria JavaScript open source, sviluppata da Meta nel 2013, permette la creazione di componenti riutilizzabile e la gestione dello stato dell'applicazione in modo efficiente.
+Scompone l'interfaccia utente in piccoli componenti modulari, ciascuno responsabile di una specifica parte dell'interfaccia, garantendo una maggior sviluppo e manutenibilità del codice.\\
+Una caratteristica distintiva di React è la sua efficacia di rendering, infatti, grazie al virtual DOM (Dynamic Object Model), permette di aggiornare solo le parti dell'interfaccia che vengono modificate,
+senza dover ricaricare l'intera pagina, garantendo una maggiore efficienza e velocità di rendering.\\
+È spesso utilizzato insieme ad altre librerie come React Router, che permette di gestire le rotte dell'applicazione.\\
+
 \subsection{C\texttt{\#}}
+C\texttt{\#} è un linguaggio di programmazione orientato agli oggetti, sviluppato da Microsoft nel 2000, è un linguaggio di programmazione multiparadigma, supporta i paradigmi di programmazione procedurale, funzionale, generica, orientata agli oggetti e asincrona.
+È un linguaggio di programmazione fortemente tipizzato, in quanto ogni variabile deve essere dichiarata con un tipo specifico, e supporta la programmazione generica, in quanto permette di creare classi e metodi generici, che possono essere utilizzati con tipi diversi.\\
+È spesso utilizzato per lo sviluppo di applicazioni web, desktop e mobile, in quanto permette di creare applicazioni efficienti e affidabili.\\
+Ha un ampio supporto per il framework .NET, il quale offre una vasta gamma di librerie e strumenti per lo sviluppo di applicazioni backend e non solo, inoltre, il framework .NET include
+ASP.NET, un framework utilizzato per lo sviluppo di applicazioni web, che consente la creazione di API RESTful con facilità, grazie anche alla gestione avanzata delle richieste HTTP.\\
 
 \subsection{Azure}
-
-\section{Archittetura di una webapp}
-
-\section{Funzionalita della webapp}
+Azure è una piattaforma di cloud computing, sviluppata da Microsoft nel 2010, permette di creare, testare, distribuire e gestire applicazioni e servizi tramite i data center di Microsoft.
+Offre una ampia varieta di servizi, come servizi di elaborazione, servizi di archiviazione e database, servizi di rete, servizi di intelligenza artificiale e servizi di sicurezza.\\
+Il vantaggio principale di Azure è la scalabilità, infatti permette di scalare le risorse di elaborazione e di rete in base alle esigenze dell'applicazione, inoltre permette di ridurre i costi di gestione, in quanto
+ci sono diversi piani di pagamento, che permettono di pagare solo le risorse utilizzate.\\
