@@ -2,49 +2,124 @@
 \label{cap:progettazione}
 
 La progettazione del sistema è un passo fondamentale per lo sviluppo di un sistema software.\\
-In questo capitolo verranno descritte le scelte progettuali effettuate per lo sviluppo del sistema.\\
-In particolare verranno descritte le scelte progettuali effettuate per il database, per il frontend, per il backend e per l'integrazione con Azure Media Services.\\
+In questo capitolo verranno descritte le scelte progettuali effettuate per la progettazione del sistema, in particolare verranno descritte le scelte progettuali effettuate per lo sviluppo del database, il frontend, il backend e l'integrazione con Azure Media Services.\\
 
-\section{Descrizione dell'architettura del sistema}
+% \section{Descrizione dell'architettura del sistema}
 
-Inizieremo con una panoramica dell'architettura generale del sistema. Saranno illustrate le diverse componenti del sistema, 
-come il frontend, il backend e i servizi di Azure utilizzati per lo streaming e lo storage dei video. 
-Verranno presentati i diagrammi che mostrano come queste componenti interagiscono tra loro per fornire la funzionalità desiderata.
+% Inizieremo con una panoramica dell'architettura generale del sistema. Saranno illustrate le diverse componenti del sistema, 
+% come il frontend, il backend e i servizi di Azure utilizzati per lo streaming e lo storage dei video. 
+% Verranno presentati i diagrammi che mostrano come queste componenti interagiscono tra loro per fornire la funzionalità desiderata.
 
 \section{Progettazione del database}
 
-\section{Progettazione del frontend in React}
-
-Nella progettazione del frontend, ci concentreremo sull'utilizzo di React come libreria principale per lo sviluppo dell'interfaccia utente. Saranno illustrati i principi di progettazione di React, come la creazione di componenti riutilizzabili, la gestione dello stato dell'applicazione e la definizione delle rotte per la navigazione. Saranno presentati anche i diagrammi dell'architettura del frontend, mostrando come i componenti si integrano per creare un'esperienza utente coerente.
-
+\section{Progettazione del frontend}
+La progettazione del frontend è stata sviluppata con l'utilizzo di React come libreria principale per lo sviluppo dell'interfaccia utente.
+%  Verranno illustrati i principi di progettazione di React, come la creazione di componenti riutilizzabili, la gestione dello stato dell'applicazione e la definizione delle rotte per la navigazione. Saranno presentati anche i diagrammi dell'architettura del frontend, mostrando come i componenti si integrano per creare un'esperienza utente coerente.
 \subsection{Principi di progettazione di React}
-
 React è una libreria JavaScript per la creazione di interfacce utente. È stata sviluppata da Facebook e viene utilizzata per la creazione di UI per applicazioni web e mobile.\\
-React è basato su quattro principi di progettazione: componenti, stato, rotte e proprietà.\\
+React è basato su quattro principi di progettazione: componenti, state, route e props.\\
+\subsubsection{Componenti}
+Le componenti sono elementi dell'interfaccia utente che possono essere riutilizzate in diverse parti dell'applicazione.\\
+Una componente può essere una piccola porzione di pagina o un'elemento complesso e autonomo, consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
+\subsubsection{State}
+Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione.\\
+Lo stato è immutabile, quindi non può essere modificato direttamente, per modificarlo, è necessario utilizzare il metodo \texttt{setState()} che viene fornito da React.\\
+Quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
+\subsubsection{DOM}
+Il DOM (Document Object Model) è una rappresentazione virtuale degli elementi della pagina.\\
+Quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate.\\
+In questo modo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
 
-\begin{itemize}
-    \item{Componenti}: sono elementi dell'interfaccia utente che possono essere riutilizzati in diverse parti dell'applicazione. Una componente può essere una piccola porzione di pagina o un'elemento complesso e autonomo.\\
-    I componenti consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
-    \item{State}: è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione. Lo stato è immutabile, quindi non può essere modificato direttamente. Per modificare lo stato, è necessario utilizzare il metodo \texttt{setState()} che viene fornito da React, quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
-    \item{DOM}: è un albero di oggetti che rappresenta la struttura di un documento HTML. Il DOM è una rappresentazione del documento HTML che può essere modificata utilizzando JavaScript.\\
-    \item{Props}: vengono utilizzate per passare dati da un componente padre ad un componente figlio, ad esempio un componente padre può passare una funzione ad un componente figlio, in questo modo il componente figlio può chiamare la funzione del componente padre.\\
-    \item{Route}:
-    \item{Context}:
-\end{itemize}
+\subsubsection{Props}
+Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che vengono utilizzati per passare dati da un componente padre a un componente figlio.\\
+Vengono specificate come attributi del componente figlio, rendendo disponibili i dati del componente padre al componente figlio.\\
 
+\subsubsection{Route}
+Le route vengono utilizzate per definire le rotte dell'applicazione.\\
+Ad esempio, se l'utente naviga all'indirizzo \texttt{http://localhost:3000/}, verrà visualizzata la pagina principale dell'applicazione.\\
+Se l'utente naviga all'indirizzo \texttt{http://localhost:3000/login}, verrà visualizzata la pagina di login.\\
+\subsubsection{Context}
+Il Context viene utilizzato per condividere dati tra componenti che si trovano in posizioni diverse dell'albero dei componenti.\\
+Ad esempio, se un componente si trova in una posizione profonda dell'albero dei componenti, può essere difficile passare dati a componenti che si trovano in posizioni più alte dell'albero dei componenti.\\
+Il Context consente di condividere dati tra componenti che si trovano in posizioni diverse dell'albero dei componenti.\\
 \subsection{Architettura del frontend}
-
-Il frontend è sviluppato utilizzando un template disposto dall'azienda, che utilizza il design pattern Container-Presenter, ovvero una variante del design pattern Model-View-Controller che la differenza che il Controller è sostituito dal Presenter.\\
+Il frontend è sviluppato utilizzando un template disposto dall'azienda, che utilizza il design pattern Container-Presenter, ovvero una variante del design pattern Model-View-Controller con la differenza che il Controller è sostituito dal Presenter.\\
 Il design pattern Container-Presenter è composto da due componenti principali: il Container e il Presenter.\\
 Il Container è il responsabile della gestione dello stato dell'applicazione e della comunicazione con il backend, mentre il Presenter è il responsabile della presentazione dei dati e della gestione degli eventi.\\
 La comunicazione tra il Container e il Presenter avviene tramite le props.\\
 Il Container passa le props al Presenter, che le utilizza per presentare i dati e per gestire gli eventi.\\
 Il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
+\subsubsection{Container}
+Il Container è il responsabile della gestione dello stato dell'applicazione e della comunicazione con il backend.\\
+Il Container è composto da due parti: lo stato e i metodi.\\
+Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione.\\
+I metodi sono funzioni che vengono utilizzate dai componenti dell'applicazione.\\
+Il Container passa le props al Presenter, che le utilizza per presentare i dati e per gestire gli eventi.\\
+Il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
+\subsubsection{Presenter}
+Il Presenter è il responsabile della presentazione dei dati e della gestione degli eventi.\\
+Il Presenter è composto da due parti: i metodi e la presentazione.\\
+I metodi sono funzioni che vengono utilizzate dai componenti dell'applicazione.\\
+La presentazione è la parte che viene visualizzata dall'utente.\\
+Il Presenter riceve le props dal Container, che le utilizza per presentare i dati e per gestire gli eventi.\\
+Il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
+\subsection{Diagrammi dell'architettura del frontend}
+\subsubsection{Diagramma dei componenti}
+
+% % \begin{figure}[H]
+% %     \centering
+% %     \includegraphics[width=1\textwidth]{images/frontend-components-diagram.png}
+% %     \caption{Diagramma dei componenti del frontend}
+% %     \label{fig:frontend-components-diagram}
+% % \end{figure}
+TODO immagine diagramma dei componenti
+
+\section{Progettazione del backend}
+Per la progettazione del backend, ci concentreremo sull'utilizzo di C\texttt{\#} come linguaggio principale per lo sviluppo del backend. Saranno illustrati i principi di progettazione di C\texttt{\#}, come la creazione di classi, la gestione dello stato dell'applicazione e la definizione delle rotte per la navigazione. Saranno presentati anche i diagrammi dell'architettura del backend, mostrando come le classi si integrano per creare un'esperienza utente coerente.
+
+\subsection{Architettura del backend}
+Il backend è sviluppato utilizzando un template disposto dall'azienda, che utilizza una separazione delle componenti in layer distinti, dove ogni layer ha un compito specifico.\\
+Il template è composto da tre layer fondamentali: API, Core e Data.\\
+Il layer API è responsabile della comunicazione con il frontend.\\
+Il layer Core è responsabile della gestione dello stato dell'applicazione.\\
+Il layer Data è responsabile della comunicazione con il database.\\
+
+\subsubsection{API}
+Il layer API è responsabile della comunicazione con il frontend.\\
+Il layer API è composto da due parti: i controller e i DTO.\\
+I controller sono responsabili della gestione delle richieste HTTP.\\
+I DTO sono responsabili della gestione dei dati.\\
+I controller ricevono le richieste HTTP dal frontend e le passano ai DTO, che le utilizzano per gestire i dati.\\
+I DTO ricevono i dati dal frontend e li passano ai controller, che li utilizzano per gestire le richieste HTTP.\\
+\subsubsection{Core}
+Il layer Core è responsabile della gestione dello stato dell'applicazione.\\
+Il layer Core è composto da due parti: i servizi e i modelli.\\
+I servizi sono responsabili della gestione dello stato dell'applicazione.\\
+I modelli sono responsabili della gestione dei dati.\\
+I servizi ricevono i dati dai modelli e li utilizzano per gestire lo stato dell'applicazione.\\
+I modelli ricevono lo stato dell'applicazione dai servizi e lo utilizzano per gestire i dati.\\
+\subsubsection{Data}
+Il layer Data è responsabile della comunicazione con il database.\\
+Il layer Data è composto da due parti: i repository e i modelli.\\
+I repository sono responsabili della gestione dei dati.\\
+I modelli sono responsabili della gestione dei dati.\\
+
+\subsection{Diagrammi dell'architettura del backend}
+\subsubsection{Diagramma dei componenti}
+
+TODO immagine diagramma dei componenti
+
+\section{Integrazione con Azure}
+La WebApp è stata integrata con Azure per la gestione del database, per la gestione dei video e per la distribuzione dell'applicazione.\\
+Azure è una piattaforma cloud che offre vari servizi, per lo sviluppo di questa applicazione sono stati utilizzati SQL Server, Azure Media Service e Azure App Service.\\
+
+\subsection{Azure SQL Server}
+Azure SQL Server è un servizio di database relazionale completamente gestito che offre funzionalità di database SQL, è stato utilizzato per la gestione del database dell'applicazione.\\
 
 
+\subsection{Azure Media Service}
+Azure Media Service è un servizio di streaming video e audio che offre funzionalità di streaming video e audio, è stato utilizzato per la gestione dei video dell'applicazione.\\
 
 
-
-\section{Progettazione del backend in C Sharp}
-
-\section{Integrazione con Azure Media Services}
+\subsection{Azure App Service}
+Azure App Service è un servizio di hosting web completamente gestito che offre funzionalità di hosting web, è stato utilizzato per la distribuzione dell'applicazione.\\
