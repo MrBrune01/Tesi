@@ -13,11 +13,11 @@ In questo capitolo verranno descritte le scelte progettuali effettuate per la pr
 \section{Progettazione del database}
 
 \section{Progettazione del frontend}
-La progettazione del frontend è stata sviluppata con l'utilizzo di React come libreria principale per lo sviluppo dell'interfaccia utente.
+La progettazione del frontend è sviluppata sulla base dell'utilizzo di React come libreria principale per lo sviluppo dell'interfaccia utente.
 %  Verranno illustrati i principi di progettazione di React, come la creazione di componenti riutilizzabili, la gestione dello stato dell'applicazione e la definizione delle rotte per la navigazione. Saranno presentati anche i diagrammi dell'architettura del frontend, mostrando come i componenti si integrano per creare un'esperienza utente coerente.
 \subsection{Principi di progettazione di React}
 React è una libreria JavaScript per la creazione di interfacce utente. È stata sviluppata da Facebook e viene utilizzata per la creazione di UI per applicazioni web e mobile.\\
-React è basato su quattro principi di progettazione: componenti, state, route e props.\\
+React è basato su sei principi di progettazione: componenti, state, DOM, route, context e props.\\
 \subsubsection{Componenti}
 Le componenti sono elementi dell'interfaccia utente che possono essere riutilizzate in diverse parti dell'applicazione.\\
 Una componente può essere una piccola porzione di pagina o un'elemento complesso e autonomo, consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
@@ -29,40 +29,22 @@ Quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
 Il DOM (Document Object Model) è una rappresentazione virtuale degli elementi della pagina.\\
 Quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate.\\
 In questo modo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
-
-\subsubsection{Props}
-Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che vengono utilizzati per passare dati da un componente padre a un componente figlio.\\
-Vengono specificate come attributi del componente figlio, rendendo disponibili i dati del componente padre al componente figlio.\\
-
 \subsubsection{Route}
-Le route vengono utilizzate per definire le rotte dell'applicazione.\\
-Ad esempio, se l'utente naviga all'indirizzo \texttt{http://localhost:3000/}, verrà visualizzata la pagina principale dell'applicazione.\\
-Se l'utente naviga all'indirizzo \texttt{http://localhost:3000/login}, verrà visualizzata la pagina di login.\\
+Le route vengono utilizzate per gestire la navigazione e la visualizzazione delle diverse pagine dell'applicazione.\\
+Consento di definire le corrispondenze tra gli URL specifici e i componenti che devono essere visualizzati quando viene richiesto un URL specifico.\\
+Per gestire il routing, React utilizza una libreria esterna chiamata React Router, la quale fornisce diverse componenti che consentono di definire le route e di stabilire le corrispondenze tra gli URL e i componenti.\\
 \subsubsection{Context}
-Il Context viene utilizzato per condividere dati tra componenti che si trovano in posizioni diverse dell'albero dei componenti.\\
-Ad esempio, se un componente si trova in una posizione profonda dell'albero dei componenti, può essere difficile passare dati a componenti che si trovano in posizioni più alte dell'albero dei componenti.\\
-Il Context consente di condividere dati tra componenti che si trovano in posizioni diverse dell'albero dei componenti.\\
+Il Context è un meccanismo che consente di condividere dati specifici con tutti i componenti figli di un componente padre, evitando di dover passare manualmente le props attraverso i livelli intermedi.\\
+È composto da due parti: il Consumer e il Provider.\\
+Il Consumer è il componente che utilizza i dati condivisi, mentre il Provider è il componente che condivide i dati.\\
+\subsubsection{Props}
+Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che vengono utilizzati per passare dati da un componente padre a un componente figlio in modo unidirezionale.\\
+Il passaggio di dati tra la componente padre e la componente figlio avviene tramite gli attributi di quest'ultimo.\\
+
 \subsection{Architettura del frontend}
 Il frontend è sviluppato utilizzando un template disposto dall'azienda, che utilizza il design pattern Container-Presenter, ovvero una variante del design pattern Model-View-Controller con la differenza che il Controller è sostituito dal Presenter.\\
-Il design pattern Container-Presenter è composto da due componenti principali: il Container e il Presenter.\\
-Il Container è il responsabile della gestione dello stato dell'applicazione e della comunicazione con il backend, mentre il Presenter è il responsabile della presentazione dei dati e della gestione degli eventi.\\
-La comunicazione tra il Container e il Presenter avviene tramite le props.\\
-Il Container passa le props al Presenter, che le utilizza per presentare i dati e per gestire gli eventi.\\
-Il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
-\subsubsection{Container}
-Il Container è il responsabile della gestione dello stato dell'applicazione e della comunicazione con il backend.\\
-Il Container è composto da due parti: lo stato e i metodi.\\
-Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione.\\
-I metodi sono funzioni che vengono utilizzate dai componenti dell'applicazione.\\
-Il Container passa le props al Presenter, che le utilizza per presentare i dati e per gestire gli eventi.\\
-Il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
-\subsubsection{Presenter}
-Il Presenter è il responsabile della presentazione dei dati e della gestione degli eventi.\\
-Il Presenter è composto da due parti: i metodi e la presentazione.\\
-I metodi sono funzioni che vengono utilizzate dai componenti dell'applicazione.\\
-La presentazione è la parte che viene visualizzata dall'utente.\\
-Il Presenter riceve le props dal Container, che le utilizza per presentare i dati e per gestire gli eventi.\\
-Il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
+Il design pattern Container-Presenter è composto da due componenti principali: il Container e il Presenter, il primo è responsabile della gestione dello stato dell'applicazione e della comunicazione con il backend, mentre il secondo il responsabile della presentazione dei dati e della gestione degli eventi.\\
+La comunicazione tra i due avviene tramite le props, dove il Container passa le props al Presenter, che le utilizza per presentare i dati e per gestire gli eventi, mentre il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
 \subsection{Diagrammi dell'architettura del frontend}
 \subsubsection{Diagramma dei componenti}
 
@@ -75,34 +57,34 @@ Il Presenter può comunicare con il Container tramite le props, ad esempio può 
 TODO immagine diagramma dei componenti
 
 \section{Progettazione del backend}
-Per la progettazione del backend, ci concentreremo sull'utilizzo di C\texttt{\#} come linguaggio principale per lo sviluppo del backend. Saranno illustrati i principi di progettazione di C\texttt{\#}, come la creazione di classi, la gestione dello stato dell'applicazione e la definizione delle rotte per la navigazione. Saranno presentati anche i diagrammi dell'architettura del backend, mostrando come le classi si integrano per creare un'esperienza utente coerente.
+La progettazione del backend è sviluppata sulla base dell'utilizzo di .NET Core come framework principale per lo sviluppo del backend.\\
+
 
 \subsection{Architettura del backend}
-Il backend è sviluppato utilizzando un template disposto dall'azienda, che utilizza una separazione delle componenti in layer distinti, dove ogni layer ha un compito specifico.\\
+Il backend è sviluppato utilizzando un template disposto dall'azienda, che utilizza una separazione delle componenti in layer distinti, dove ognuno ha un compito specifico.\\
 Il template è composto da tre layer fondamentali: API, Core e Data.\\
-Il layer API è responsabile della comunicazione con il frontend.\\
-Il layer Core è responsabile della gestione dello stato dell'applicazione.\\
-Il layer Data è responsabile della comunicazione con il database.\\
+API è responsabile della comunicazione con il frontend.\\
+Core è responsabile della gestione dello stato dell'applicazione.\\
+Data è responsabile della comunicazione con il database.\\
 
 \subsubsection{API}
-Il layer API è responsabile della comunicazione con il frontend.\\
-Il layer API è composto da due parti: i controller e i DTO.\\
-I controller sono responsabili della gestione delle richieste HTTP.\\
-I DTO sono responsabili della gestione dei dati.\\
-I controller ricevono le richieste HTTP dal frontend e le passano ai DTO, che le utilizzano per gestire i dati.\\
-I DTO ricevono i dati dal frontend e li passano ai controller, che li utilizzano per gestire le richieste HTTP.\\
+Il layer API è responsabile della comunicazione con il frontend, è composto da due parti: i controller e i DTO.\\
+Il primo ha il compito di gestire le richieste HTTP provenienti dal frontend e coordinare le azioni richieste per soddisfarle.\\
+Quando un controller riceve una richiesta HTTP, estrae i dati necessari dalla richiesta e interagisce con i layer Core per fornire una risposta al Client.\\
+Il secondo ha il compito di definire la struttura dei dati che vengono trasferiti tra il frontend e il backend, in modo da consentire una comunicazione standardizzata e senza ambiguità.\\
+I DTO possono includere solo i campi necessari per soddisfare una certa richiesta, così facendo, riduce il trasferimento di dati inutili e rende la comunicazione più veloce.\\
+Oltre a ciò, sono utilizzati anche per la validazione dei dati, garantendo che i dati ricevuti dal frontend siano validi.\\
 \subsubsection{Core}
-Il layer Core è responsabile della gestione dello stato dell'applicazione.\\
-Il layer Core è composto da due parti: i servizi e i modelli.\\
-I servizi sono responsabili della gestione dello stato dell'applicazione.\\
-I modelli sono responsabili della gestione dei dati.\\
-I servizi ricevono i dati dai modelli e li utilizzano per gestire lo stato dell'applicazione.\\
-I modelli ricevono lo stato dell'applicazione dai servizi e lo utilizzano per gestire i dati.\\
+Il layer Core è responsabile della gestione dello stato dell'applicazione. Riceve le richieste dal layer API e le elabora, interagendo con il layer Data per ottenere i dati necessari.\\
+È composto da due parti: i models e i service.\\
+I models rappresentano la struttura dei dati che vengono utilizzati dall'applicazione per effettuare le operazioni richieste.\\
+I service, invece gestiscono la logica dell'applicazione, contengono i metodi che vengono chiamati dai controller, che eseguono operazioni con i servizi esterni e con il layer Data.\\
+
 \subsubsection{Data}
-Il layer Data è responsabile della comunicazione con il database.\\
-Il layer Data è composto da due parti: i repository e i modelli.\\
-I repository sono responsabili della gestione dei dati.\\
-I modelli sono responsabili della gestione dei dati.\\
+Il layer Data è responsabile dell'accesso ai dati, è composto da tre parti: Context, Entity e Provider.\\
+Il primo ha il compito di gestire la connessione con il database, definisce la struttura del database e fornisce i metodi per accedervi.\\
+Il secondo ha il compito di definire la struttura dei dati che vengono salvati nel database.\\
+Il terzo ha il compito di gestire la comunicazione con il database, fornisce i metodi per accedere ai dati per effettuare le operazioni di lettura e scrittura.\\
 
 \subsection{Diagrammi dell'architettura del backend}
 \subsubsection{Diagramma dei componenti}
@@ -110,12 +92,17 @@ I modelli sono responsabili della gestione dei dati.\\
 TODO immagine diagramma dei componenti
 
 \section{Integrazione con Azure}
-La WebApp è stata integrata con Azure per la gestione del database, per la gestione dei video e per la distribuzione dell'applicazione.\\
-Azure è una piattaforma cloud che offre vari servizi, per lo sviluppo di questa applicazione sono stati utilizzati SQL Server, Azure Media Service e Azure App Service.\\
+Azure è una piattaforma cloud proprietaria di Microsoft che offre vari servizi.
+La WebApp è integrata con Azure per la gestione del database, gestione dei video e per la distribuzione dell'applicazione.\\
+Per lo sviluppo di questa applicazione sono utilizzati i seguenti servizi: SQL Server, Azure Media Service e Azure App Service.\\
 
 \subsection{Azure SQL Server}
-Azure SQL Server è un servizio di database relazionale completamente gestito che offre funzionalità di database SQL, è stato utilizzato per la gestione del database dell'applicazione.\\
-
+Azure SQL Server è un servizio di database relazionale completamente gestito che offre funzionalità di database SQL.
+Offre una serie di vantaggi rispetto a un Server SQL tradizionale, come la facilità di gestione, la scalabilità e sicurezza \
+Il database non deve essere gestito in quanto Azure si occupa della gestione dell'infrastruttura, aggiornamenti delle patch di sicurezza e delle operazioni di manutenzione del server, consentendo agli sviluppatori di concentrarsi sulla logica di business e sull'applicazioni dati.\\
+Inoltre permette di scalare sia orizzontalmente che verticalmente il database, in maniera automatica, in modo tale da adattarsi alle esigenze dell'applicazione.\\
+Un altro vantaggio è la sicurezza, in quanto integra funzionalità di sicurezza avanzate, come la crittografia dei dati in transito e a riposo, la protezione da minacce e la gestione degli accessi.\\
+È stato utilizzato per la gestione dei dati dell'applicazione, integrandosi con il backend dell'applicazione attraverso il context contenuto nel layer Data.\\
 
 \subsection{Azure Media Service}
 Azure Media Service è un servizio di streaming video e audio che offre funzionalità di streaming video e audio, è stato utilizzato per la gestione dei video dell'applicazione.\\
