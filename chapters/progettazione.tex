@@ -2,7 +2,7 @@
 \label{cap:progettazione}
 
 La progettazione del sistema è un passo fondamentale per lo sviluppo di un sistema software.\\
-In questo capitolo verranno descritte le scelte progettuali effettuate per la progettazione del sistema, in particolare verranno descritte le scelte progettuali effettuate per lo sviluppo del database, il frontend, il backend e l'integrazione con Azure Media Services.\\
+In questo capitolo verranno descritte le scelte progettuali effettuate per la progettazione del sistema, in particolare per lo sviluppo del database, il frontend, il backend e l'integrazione con Azure Media Services.\\
 
 % \section{Descrizione dell'architettura del sistema}
 
@@ -11,102 +11,115 @@ In questo capitolo verranno descritte le scelte progettuali effettuate per la pr
 % Verranno presentati i diagrammi che mostrano come queste componenti interagiscono tra loro per fornire la funzionalità desiderata.
 
 \section{Progettazione del database}
+La progettazione del database è stata effettuata sulla base dei requisiti funzionali e non funzionali individuati in fase di analisi.\\
+Il database è stato progettato per memorizzare i dati relativi agli eventi, video e utenti.\\
+Per la sua progettazione è stato utilizzato il framework Entity Framework Core, che permette di definire il modello del database utilizzando classi e proprietà direttamente dal codice. Non è stato necessario scrivere codice SQL per la creazione del database, ma è stato sufficiente definire le classi e le proprietà dei modelli e successivamente eseguire le migrazioni per aggiornare il database.\\
+
+\clearpage
+
+\subsection{Modello del database}
+Il database è composto da tre tabelle: Event, Video e User.\\
+La tabella Event contiene i dati relativi agli eventi, come l'id, il titolo, l'id dell'user che l'ha creato, la data di inizio e di fine e l'URL alla thumbanil; la tabella Video contiene i dati relativi ai video, come l'id, il titolo, l'URL alla thumbnail, l'URL al video e l'id dell'evento a cui appartiene; la tabella User contiene i dati relativi agli utenti, come l'id e il nome;
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[scale=0.5]{diagrammi/database.png} 
+    \caption{Diagramma del database}
+\end{figure}
 
 \section{Progettazione del frontend}
 La progettazione del frontend è sviluppata sulla base dell'utilizzo di React come libreria principale per lo sviluppo dell'interfaccia utente.
 %  Verranno illustrati i principi di progettazione di React, come la creazione di componenti riutilizzabili, la gestione dello stato dell'applicazione e la definizione delle rotte per la navigazione. Saranno presentati anche i diagrammi dell'architettura del frontend, mostrando come i componenti si integrano per creare un'esperienza utente coerente.
 \subsection{Principi di progettazione di React}
 React è una libreria JavaScript per la creazione di interfacce utente. È stata sviluppata da Facebook e viene utilizzata per la creazione di UI per applicazioni web e mobile.\\
-React è basato su sei principi di progettazione: componenti, state, DOM, route, context e props.\\
+React è basato su sei principi di progettazione: Componenti, State, DOM, Route, Context e Props.\\
 \subsubsection{Componenti}
-Le componenti sono elementi dell'interfaccia utente che possono essere riutilizzate in diverse parti dell'applicazione.\\
-Una componente può essere una piccola porzione di pagina o un'elemento complesso e autonomo, consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
+Le componenti sono elementi dell'interfaccia utente che possono essere riutilizzate in diverse parti dell'applicazione, una componente può essere una piccola porzione di pagina o un elemento complesso e autonomo, consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
 \subsubsection{State}
-Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione.\\
-Lo stato è immutabile, quindi non può essere modificato direttamente, per modificarlo, è necessario utilizzare il metodo \texttt{setState()} che viene fornito da React.\\
-Quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
+Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione, è immutabile, quindi non può essere modificato direttamente; per modificarlo, è necessario utilizzare il metodo \texttt{setState()} che viene fornito da React; quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
 \subsubsection{DOM}
-Il DOM (Document Object Model) è una rappresentazione virtuale degli elementi della pagina.\\
-Quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate.\\
-In questo modo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
+Il DOM (Document Object Model) è una rappresentazione virtuale degli elementi della pagina, quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate, così facendo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
 \subsubsection{Route}
-Le route vengono utilizzate per gestire la navigazione e la visualizzazione delle diverse pagine dell'applicazione.\\
-Consento di definire le corrispondenze tra gli URL specifici e i componenti che devono essere visualizzati quando viene richiesto un URL specifico.\\
-Per gestire il routing, React utilizza una libreria esterna chiamata React Router, la quale fornisce diverse componenti che consentono di definire le route e di stabilire le corrispondenze tra gli URL e i componenti.\\
+Le route vengono utilizzate per gestire la navigazione e la visualizzazione delle diverse pagine dell'applicazione, consentono di definire le corrispondenze tra gli url specifici e i componenti che devono essere visualizzati quando viene richiesto un url specifico.
+Per gestire il routing, React utilizza una libreria esterna chiamata React Router, la quale fornisce diverse componenti che consentono di definire le route e di stabilire le corrispondenze tra gli url e i componenti.\\
 \subsubsection{Context}
-Il Context è un meccanismo che consente di condividere dati specifici con tutti i componenti figli di un componente padre, evitando di dover passare manualmente le props attraverso i livelli intermedi.\\
-È composto da due parti: il Consumer e il Provider.\\
-Il Consumer è il componente che utilizza i dati condivisi, mentre il Provider è il componente che condivide i dati.\\
+Il Context è un meccanismo che consente di condividere dati specifici con tutti i componenti figli di un componente padre, evitando di dover passare manualmente le props attraverso i livelli intermedi, è composto da due parti: il Provider e il Consumer; il primo è responsabile di definire il contesto e di fornire i dati, mentre il secondo accede ai dati forniti dal Provider.\\
 \subsubsection{Props}
-Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che vengono utilizzati per passare dati da un componente padre a un componente figlio in modo unidirezionale.\\
-Il passaggio di dati tra la componente padre e la componente figlio avviene tramite gli attributi di quest'ultimo.\\
+Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che vengono utilizzati per passare dati da un componente padre a un componente figlio in modo unidirezionale.
+Il passaggio di dati tra la componente padre e la componente figlio avviene tramite gli attributi di quest'ultimo, mentre il passaggio di dati tra la componente figlio e la componente padre avviene tramite le funzioni callback.\\
 
 \subsection{Architettura del frontend}
-Il frontend è sviluppato utilizzando un template disposto dall'azienda, che utilizza il design pattern Container-Presenter, ovvero una variante del design pattern Model-View-Controller con la differenza che il Controller è sostituito dal Presenter.\\
-Il design pattern Container-Presenter è composto da due componenti principali: il Container e il Presenter, il primo è responsabile della gestione dello stato dell'applicazione e della comunicazione con il backend, mentre il secondo il responsabile della presentazione dei dati e della gestione degli eventi.\\
-La comunicazione tra i due avviene tramite le props, dove il Container passa le props al Presenter, che le utilizza per presentare i dati e per gestire gli eventi, mentre il Presenter può comunicare con il Container tramite le props, ad esempio può chiamare una funzione del Container passata come prop.\\
+Il frontend è sviluppato utilizzando un template disposto dall'azienda, che utilizza il design pattern Container-Presenter, è composto da due componenti principali: il Container e il Presenter.
+Il primo è responsabile della gestione dello stato dell'applicazione, dell'interazione con i dati e della logica di business, si occupa di recuperare i dati, gestire gli eventi, effettuare chiamate API e gestire lo stato globale dell'applicazione; il secondo invece, è responsabile dell'aspetto visuale e dell'interfaccia utente, riceve i dati e le funzioni dai Container e si occupa di renderizzare l'interfaccia utente in base ai dati ricevuti.\\
+La comunicazione tra i due avviene tramite le props, in quanto il Container passa i dati al Presenter tramite props, mentre il Presenter invia le informazioni tramite callback fornite dal Container.\\
+
 \subsection{Diagrammi dell'architettura del frontend}
-\subsubsection{Diagramma dei componenti}
-
-% % \begin{figure}[H]
-% %     \centering
-% %     \includegraphics[width=1\textwidth]{images/frontend-components-diagram.png}
-% %     \caption{Diagramma dei componenti del frontend}
-% %     \label{fig:frontend-components-diagram}
-% % \end{figure}
-TODO immagine diagramma dei componenti
-
+\subsubsection{Diagramma dell'architettura}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[scale=0.5]{diagrammi/frontend.drawio.png} 
+    \caption{Diagramma design pattern Container-Presenter}
+\end{figure}
+\clearpage
 \section{Progettazione del backend}
-La progettazione del backend è sviluppata sulla base dell'utilizzo di .NET Core come framework principale per lo sviluppo del backend.\\
-
+La progettazione del backend è sviluppata sulla base dell'utilizzo del linguaggio di programmazione C\texttt{\#} e del framework ASP.NET Core.\\
 
 \subsection{Architettura del backend}
 Il backend è sviluppato utilizzando un template disposto dall'azienda, che utilizza una separazione delle componenti in layer distinti, dove ognuno ha un compito specifico.\\
-Il template è composto da tre layer fondamentali: API, Core e Data.\\
-API è responsabile della comunicazione con il frontend.\\
-Core è responsabile della gestione dello stato dell'applicazione.\\
-Data è responsabile della comunicazione con il database.\\
+Il template è composto da tre layer fondamentali: API, Core e Data; il primo è responsabile della comunicazione con il frontend, il secondo è responsabile della gestione dello stato dell'applicazione e il terzo è responsabile della comunicazione con il database.\\
 
 \subsubsection{API}
-Il layer API è responsabile della comunicazione con il frontend, è composto da due parti: i controller e i DTO.\\
-Il primo ha il compito di gestire le richieste HTTP provenienti dal frontend e coordinare le azioni richieste per soddisfarle.\\
-Quando un controller riceve una richiesta HTTP, estrae i dati necessari dalla richiesta e interagisce con i layer Core per fornire una risposta al Client.\\
-Il secondo ha il compito di definire la struttura dei dati che vengono trasferiti tra il frontend e il backend, in modo da consentire una comunicazione standardizzata e senza ambiguità.\\
-I DTO possono includere solo i campi necessari per soddisfare una certa richiesta, così facendo, riduce il trasferimento di dati inutili e rende la comunicazione più veloce.\\
-Oltre a ciò, sono utilizzati anche per la validazione dei dati, garantendo che i dati ricevuti dal frontend siano validi.\\
+È responsabile della comunicazione con il frontend, è composto da due parti: i controller e i DTO. Il primo ha il compito di gestire le richieste HTTP provenienti dal frontend e coordinare le azioni richieste per soddisfarle: quando un controller riceve una richiesta, estrae i dati necessari dalla richiesta e interagisce con i layer Core per fornire una risposta al Client. 
+Il secondo ha il compito di definire la struttura dei dati che vengono trasferiti tra il frontend e il backend durante la chiamata, in modo da consentire una comunicazione standardizzata e senza ambiguità. I DTO possono includere solo i campi necessari per soddisfare una certa richiesta, così facendo, riducono il trasferimento di dati inutili e rendono la comunicazione più veloce; oltre a ciò, sono utilizzati anche per la validazione dei dati, garantendo che i dati ricevuti dal frontend siano validi.\\
 \subsubsection{Core}
-Il layer Core è responsabile della gestione dello stato dell'applicazione. Riceve le richieste dal layer API e le elabora, interagendo con il layer Data per ottenere i dati necessari.\\
-È composto da due parti: i models e i service.\\
-I models rappresentano la struttura dei dati che vengono utilizzati dall'applicazione per effettuare le operazioni richieste.\\
-I service, invece gestiscono la logica dell'applicazione, contengono i metodi che vengono chiamati dai controller, che eseguono operazioni con i servizi esterni e con il layer Data.\\
+Il layer Core è responsabile della gestione dello stato dell'applicazione. Riceve le richieste dal layer API e le elabora, interagendo con il layer Data per ottenere i dati necessari; è composto da due parti: i models e i service. I models rappresentano la struttura dei dati che vengono utilizzati dall'applicazione per effettuare le operazioni richieste; i service, invece, gestiscono la logica dell'applicazione, contengono i metodi che vengono chiamati dai controller, che eseguono operazioni con i servizi esterni e con il layer Data.\\
 
 \subsubsection{Data}
-Il layer Data è responsabile dell'accesso ai dati, è composto da tre parti: Context, Entity e Provider.\\
-Il primo ha il compito di gestire la connessione con il database, definisce la struttura del database e fornisce i metodi per accedervi.\\
-Il secondo ha il compito di definire la struttura dei dati che vengono salvati nel database.\\
-Il terzo ha il compito di gestire la comunicazione con il database, fornisce i metodi per accedere ai dati per effettuare le operazioni di lettura e scrittura.\\
+Il layer Data è responsabile dell'accesso ai dati, è composto da tre parti: Context, Entity e Provider. Il primo ha il compito di gestire la connessione con il database, definisce la struttura del database e fornisce i metodi per accedervi; il secondo ha il compito di definire la struttura dei dati che vengono salvati nel database; il terzo ha il compito di gestire la comunicazione con il database, fornisce i metodi per accedere ai dati per effettuare le operazioni di lettura e scrittura.\\
 
 \subsection{Diagrammi dell'architettura del backend}
-\subsubsection{Diagramma dei componenti}
-
-TODO immagine diagramma dei componenti
+\subsubsection{Diagramma dell'architettura}
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[scale=0.5]{diagrammi/backend.png} 
+    \caption{Diagramma architettura del backend}
+\end{figure}
 
 \section{Integrazione con Azure}
 Azure è una piattaforma cloud proprietaria di Microsoft che offre vari servizi.
-La WebApp è integrata con Azure per la gestione del database, gestione dei video e per la distribuzione dell'applicazione.\\
-Per lo sviluppo di questa applicazione sono utilizzati i seguenti servizi: SQL Server, Azure Media Service e Azure App Service.\\
+La WebApp è integrata con Azure per la gestione del database, gestione dei video e per la distribuzione dell'applicazione, sono utilizzati i seguenti servizi: SQL Server, Azure Media Service e Azure App Service.\\
 
 \subsection{Azure SQL Server}
 Azure SQL Server è un servizio di database relazionale completamente gestito che offre funzionalità di database SQL.
-Offre una serie di vantaggi rispetto a un Server SQL tradizionale, come la facilità di gestione, la scalabilità e sicurezza \
-Il database non deve essere gestito in quanto Azure si occupa della gestione dell'infrastruttura, aggiornamenti delle patch di sicurezza e delle operazioni di manutenzione del server, consentendo agli sviluppatori di concentrarsi sulla logica di business e sull'applicazioni dati.\\
+Offre una serie di vantaggi rispetto a un Server SQL tradizionale, come la facilità di gestione, la scalabilità e sicurezza.\\
+Il database non deve essere gestito in quanto Azure si occupa della gestione dell'infrastruttura, aggiornamenti delle patch di sicurezza e delle operazioni di manutenzione del server, consentendo agli sviluppatori di concentrarsi sulla logica di business e sull'applicazione dati.\\
 Inoltre permette di scalare sia orizzontalmente che verticalmente il database, in maniera automatica, in modo tale da adattarsi alle esigenze dell'applicazione.\\
 Un altro vantaggio è la sicurezza, in quanto integra funzionalità di sicurezza avanzate, come la crittografia dei dati in transito e a riposo, la protezione da minacce e la gestione degli accessi.\\
 È stato utilizzato per la gestione dei dati dell'applicazione, integrandosi con il backend dell'applicazione attraverso il context contenuto nel layer Data.\\
 
 \subsection{Azure Media Service}
-Azure Media Service è un servizio di streaming video e audio che offre funzionalità di streaming video e audio, è stato utilizzato per la gestione dei video dell'applicazione.\\
+Azure Media Service è un servizio che permette la gestione e la distribuzione di contenuti multimediali su diverse piattaforme e dispositivi.\\
+Offre varie funzionalità, ma per gli scopi di questa applicazione è stato utilizzato per la codifica, archiviazione dei video e la distribuzione dei video.\\
+
+\subsubsection{Codifica}
+La codifica è un processo che permette di convertire un video in un formato compatibile con la maggior parte dei dispositivi e delle piattaforme.\\
+Azure Media Service permette di codificare i video in diversi formati e risoluzioni, in modo da rendere disponibile la visione del video su qualsiasi dispositivo e in qualsiasi condizione di rete.\\
+Per lo sviluppo di questo PoC è stato deciso di codificare i video in H.264 e utilizzando il preset Adaptive Streaming, che permette di codificare il video in diversi formati e risoluzioni, in modo da adattarsi alla qualità della rete e al dispositivo utilizzato. Sono state scelte queste impostazioni che permettono di ottenere un video di risoluzione massima pari a 1080p 
+
+\subsubsection{Archiviazione}
+Una volta codificato, il video viene salvato in Azure Storage Account, un servizio di archiviazione di dati non strutturati come file, immagini e video.\\
+Ogni video viene salvato in un container, che è una cartella che contiene i video codificati in varie risoluzioni, il manifest e la thumbanil generata automaticamente da Azure Media Service.\\
+
+\subsubsection{Distribuzione}
+Una volta archiviato, il video viene distribuito attraverso degli Streaming Endpoint, che consentono di creare dei punti di accesso per lo streaming di contenuti multimediali in diretta o on-demand, offre la possibilità di distribuire i video attraverso vari protocolli di streaming; per questo PoC è stato utilizzato il protocollo HLS.\\
+L'utilizzo di Streaming Endpoint offre vari vantaggi, il più importante è la scalabilità, in quanto permette di scalare automaticamente il numero di istanze in base al numero di richieste, in modo da garantire fluidità e continuità dello streaming senza interruzioni.\\
+La distribuzione avviene attraverso un URL, generato da Azure Media Service, che punta al manifest del video, che viene salvato nel database dell'applicazione insieme agli altri dati del video.\\
 
 
 \subsection{Azure App Service}
-Azure App Service è un servizio di hosting web completamente gestito che offre funzionalità di hosting web, è stato utilizzato per la distribuzione dell'applicazione.\\
+È un servizio di Azure che permette di distribuire e gestire applicazioni web e API senza dover gestire l'infrastruttura.\\
+Il depoly dell'applicazione avviene attraverso l'interfaccia di Visual Studio 2022, che permette di pubblicare l'applicazione direttamente su Azure App Service.\\
+Permette di scalare automaticamente il numero di istanze in base al numero di richieste, in modo da garantire fluidità e continuità dell'applicazione senza interruzzioni.\\
+Inoltre permette di gestire il dominio dell'applicazione, in modo da poter utilizzare un dominio personalizzato.\\
+
+In generale, l'integrazione con Azure permette di ridurre i costi di gestione e di manutenzione dell'infrastruttura, in quanto è tutto gestito in automatico, permettendo di concentrarsi sullo sviluppo dell'applicazione più che sulla gestione dell'infrastruttura.\\
