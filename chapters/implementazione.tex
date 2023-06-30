@@ -1,11 +1,34 @@
 \chapter{Implementazione}
 \label{cap:implementazione}
-\intro{In questo capitolo verrà descritta l'implementazione del POC.}\\
 
-\section{Descrizione delle principali scelte implementative}
+L'implementazione del PoC è una parte fondamentale del progetto di stage, in quanto permette di verificare la fattibilità del prodotto e di valutare la bontà delle scelte progettuali.\\
+In questo capitolo verranno descritte le principali scelte implementative, sia per quanto riguarda il frontend che il backend.\\
+
+\section{Struttura del progetto}
+La struttura del progetto è stata organizzata in modo da separare il frontend dal backend, in modo da poterli sviluppare in modo indipendente. Inoltre, è stato scelto di utilizzare una repository su Azure DevOps per il versioning del codice, in modo da poter avere uno storicizzazione delle modifiche.
+\section{Backend}
+Il backend è stato sviluppato utilizzando il linguaggio di programmazione C\texttt{\#} e il framework ASP.NET Core. 
+Come ambiente di sviluppo è stato utilizzato Visual Studio 2022.\\
+Il backend è stato sviluppato seguendo il template fornito dall'azienda, che prevede l'utilizzo di un'architettura a layer.\\
+\subsection{Layer}
+L'architettura a layer è una tipologia di architettura software che prevede la suddivisione del codice in diversi livelli, ognuno dei quali ha un compito ben preciso, e che comunica con gli altri livelli solo attraverso interfacce. Questo permette di avere un codice più modulare e manutenibile, in quanto ogni livello ha un compito ben preciso e non si occupa di altro.\\
+Nel backend sono stati implementati i seguenti layer: API, Core e Data.\\
+\subsubsection{API}
+Il layer API è il livello più esterno dell'applicazione, e si occupa di gestire le richieste HTTP in arrivo dal frontend. Per fare ciò, utilizza il framework ASP.NET Core, che permette di gestire le richieste HTTP in modo semplice e veloce.
+È divisa in due parti: Controllers e DTOs.\\
+% \paragraph{Controllers}
+I Controllers sono le classi che si occupano di gestire le richieste HTTP in arrivo dal frontend.\\
+ASP.NET Core permette di gestire le richieste HTTP in modo semplice e veloce, grazie all'utilizzo dei Controllers.\\
+I Controllers sono classi che estendono la classe \texttt{ControllerBase}, e che contengono i metodi che gestiscono le richieste HTTP.\\
+Per ogni entità del database è stato creato un controller, che contiene i metodi per gestire le richieste HTTP.\\
+% \paragraph{DTOs}
+I DTOs (Data Transfer Object) sono classi che contengono i dati che vengono scambiati tra il frontend e il backend.\\
+ASP.NET Core permette di gestire le richieste HTTP in modo semplice e veloce, grazie all'utilizzo dei Controllers.\\
+I Controllers sono classi che estendono la classe \texttt{ControllerBase}, e che contengono i metodi che gestiscono le richieste HTTP.\\
+Per ogni entità del database è stato creato un controller, che contiene i metodi per gestire le richieste HTTP.\\
+
 
 \section{Frontend}
 
-\section{Backend}
 
 \section{Integrazione con Azure Media Services}
