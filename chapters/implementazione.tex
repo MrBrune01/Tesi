@@ -58,7 +58,16 @@ L'architettura del frontend è divisa in tre cartelle: Pages, Common e Context.
 La cartella Pages contiene le pagine dell'applicazione, ovvero, le pagine che vengono visualizzate all'utente. Ogni pagina è divisa a sue volta in tre componenti: Context, Page e Components.\\
 
 \paragraph{Context}
-Il Context svolge il ruolo di fornire uno stato condiviso e funzionalità ai componenti figli che ne fanno parte.
+Il Context svolge il ruolo di fornire un meccanismo per l'accesso e la condivisione dei dati tra i componenti, in modo da evitare di dover passare i dati da un componente all'altro. Per ogni pagina è stato creato un Context, che contiene un provider che contiene lo stato e le funzioni per l'accesso ai dati, ogni componente avvolto dal provider può accedere ai dati e alle funzioni per modificarli. L'accesso ai dati avviene tramite l'utilizzo del Context di FetchContext, che contiene le route per effettuare le chiamate al backend.\\
 
+\paragraph{Page}
+Ogni pagina contiene un componente PageContent, che renderizza i componenti della pagina, successivamente, viene avvolta dal Provider della pagina specifica, che permette l'accesso al Context della pagina, in modo tale che i componenti della pagina possano accedere ai dati e alle funzioni per modificarli.\\
 
-\section{Integrazione con Azure Media Services}
+\paragraph{Components}
+I Components sono le porzioni di codice che vengono renderizzate all'interno delle pagine, alcuni componenti sono condivisi tra più pagine, mentre altri sono specifici di una pagina.\\
+
+\subsubsection{Common}
+La cartella Common contiene i componenti condivisi tra più pagine, ovvero, i componenti che vengono utilizzati in più pagine. Tra questi componenti troviamo il componente Layout, che contiene la struttura di base di ogni pagina come il menù o il titolo, mentre le componenti vengono renderizzate tramite props, e il componente Routes, che contiene le route dell'applicazione.\\
+
+\subsubsection{Context}
+La cartella Context contiene i Context condivisi tra più pagine, ovvero, i Context che vengono utilizzati in più pagine. Tra questi Context troviamo il Context di FetchContext, che contiene le route per effettuare le chiamate al backend, il NavContext che contiene le route per effettuare la navigazione tra le pagine, il ToastContext che contiene le funzioni per mostrare i Toast in caso di errore o successo.\\
