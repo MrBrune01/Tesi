@@ -12,7 +12,7 @@ Per la sua progettazione è stato utilizzato il framework Entity Framework Core,
 
 \subsection{Modello del database}
 Il database è composto da tre tabelle: Event, Video e User.\\
-La tabella Event contiene i dati relativi agli eventi, come l'id, il titolo, l'id dell'user che l'ha creato, la data di inizio e di fine e l'URL alla thumbanil; la tabella Video contiene i dati relativi ai video, come l'id, il titolo, l'URL alla thumbnail, l'URL al video e l'id dell'evento a cui appartiene; la tabella User contiene i dati relativi agli utenti, come l'id e il nome;
+La tabella Event contiene i dati relativi agli eventi, come l'id, il titolo, l'id dell'user che l'ha creato, la data di inizio e di fine e l'URL alla thumbnail; la tabella Video contiene i dati relativi ai video, come l'id, il titolo, l'URL alla thumbnail, l'URL al video e l'id dell'evento a cui appartiene; la tabella User contiene i dati relativi agli utenti, come l'id e il nome;
 
 \begin{figure}[H] 
     \centering 
@@ -101,7 +101,7 @@ Per lo sviluppo di questo PoC è stato deciso di codificare i video in H.264 e u
 
 \subsubsection{Archiviazione}
 Una volta codificato, il video viene salvato in Azure Storage Account, un servizio di archiviazione di dati non strutturati come file, immagini e video.\\
-Ogni video viene salvato in un container, che è una cartella che contiene i video codificati in varie risoluzioni, il manifest e la thumbanil generata automaticamente da Azure Media Service.\\
+Ogni video viene salvato in un container, che è una cartella che contiene i video codificati in varie risoluzioni, il manifest e la thumbnail generata automaticamente da Azure Media Service.\\
 
 \subsubsection{Distribuzione}
 Una volta archiviato, il video viene distribuito attraverso degli Streaming Endpoint, che consentono di creare dei punti di accesso per lo streaming di contenuti multimediali in diretta o on-demand, offre la possibilità di distribuire i video attraverso vari protocolli di streaming; per questo PoC è stato utilizzato il protocollo HLS.\\
@@ -111,8 +111,8 @@ La distribuzione avviene attraverso un URL, generato da Azure Media Service, che
 
 \subsection{Azure App Service}
 È un servizio di Azure che permette di distribuire e gestire applicazioni web e API senza dover gestire l'infrastruttura.\\
-Il depoly dell'applicazione avviene attraverso l'interfaccia di Visual Studio 2022, che permette di pubblicare l'applicazione direttamente su Azure App Service.\\
-Permette di scalare automaticamente il numero di istanze in base al numero di richieste, in modo da garantire fluidità e continuità dell'applicazione senza interruzzioni.\\
+Il deploy dell'applicazione avviene attraverso l'interfaccia di Visual Studio 2022, che permette di pubblicare l'applicazione direttamente su Azure App Service.\\
+Permette di scalare automaticamente il numero di istanze in base al numero di richieste, in modo da garantire fluidità e continuità dell'applicazione senza interruzioni.\\
 Inoltre permette di gestire il dominio dell'applicazione, in modo da poter utilizzare un dominio personalizzato.\\
 
 In generale, l'integrazione con Azure permette di ridurre i costi di gestione e di manutenzione dell'infrastruttura, in quanto è tutto gestito in automatico, permettendo di concentrarsi sullo sviluppo dell'applicazione più che sulla gestione dell'infrastruttura.\\
