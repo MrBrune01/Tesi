@@ -92,23 +92,102 @@ Inoltre per gestire i picchi di richieste, si utilizzano infrastrutture server s
 in base alle esigenze del traffico di richieste, mantenendo il servizio sempre disponibile e riducendo i costi di gestione.\\
 
 \section{Tecnologie utilizzate}
-Per la realizzazione sono state utilizzate le seguenti tecnologie:
-\subsection{React}
-React è una libreria JavaScript open source, sviluppata da Meta nel 2013, permette la creazione di componenti riutilizzabili e la gestione dello stato dell'applicazione in modo efficiente.
-Scompone l'interfaccia utente in piccoli componenti modulari, ciascuno responsabile di una specifica parte dell'interfaccia, garantendo una maggior facilità di sviluppo e manutenibilità del codice.\\
-Una caratteristica distintiva di React è la sua efficacia di rendering, infatti, grazie al virtual DOM (Dynamic Object Model), permette di aggiornare solo le parti dell'interfaccia che vengono modificate,
-senza dover ricaricare l'intera pagina, garantendo una maggiore efficienza e velocità di rendering.\\
-È spesso utilizzato insieme ad altre librerie come React Router, che permette di gestire le rotte dell'applicazione.\\
+Per la realizzazione sono state utilizzate le seguenti tecnologie, divise in due categorie: tecnlogie lato backend e tecnologie lato frontend.\\
 
-\subsection{C\texttt{\#}}
+\subsection{Tecnlogie backend}
+
+
+\subsubsection{C\texttt{\#}}
 C\texttt{\#} è un linguaggio di programmazione orientato agli oggetti, sviluppato da Microsoft nel 2000, è un linguaggio di programmazione multiparadigma: supporta i paradigmi di programmazione procedurale, funzionale, generica, orientata agli oggetti e asincrona.
 È un linguaggio di programmazione fortemente tipizzato, in quanto ogni variabile deve essere dichiarata con un tipo specifico, e supporta la programmazione generica, in quanto permette di creare classi e metodi generici, che possono essere utilizzati con tipi diversi.\\
 È spesso utilizzato per lo sviluppo di applicazioni web, desktop e mobile, in quanto permette di creare applicazioni efficienti e affidabili.\\
 Ha un ampio supporto per il framework .NET, il quale offre una vasta gamma di librerie e strumenti per lo sviluppo di applicazioni backend e non solo, inoltre, il framework .NET include
 ASP.NET, un framework utilizzato per lo sviluppo di applicazioni web, che consente la creazione di API RESTful con facilità, grazie anche alla gestione avanzata delle richieste HTTP.\\
+\subsubsection{Entity Framework Core}
+Entity Framework Core è un ORM (Object Relational Mapper) open source, sviluppato da Microsoft, che permette di mappare le entità del database con le classi del codice, in modo tale da permettere agli sviluppatori di utilizzare le classi per interagire con il database, senza scrivere query SQL, offre una mappatura ORM che traduce in modo automatico le operazioni di lettura e scrittura degli oggetti nell'applicazione in istruzioni SQL eseguite sul database sottostante.\\
+Le principali caratteristiche di Entity Framework Core sono:
+\begin{itemize}
+\item \textbf{Mappatura delle entità}: consente di definire classi che rappresentano le tabelle del database e di specifiare le relazioni tra di esse in modo automatico;
+\item \textbf{Quering}: permette di eseguire query sul database utilizzando LINQ (Language Integrated Query), un'estensione del linguaggio C\texttt{\#} che permette di scrivere query SQL in modo dichiarativo, ovvero scrivendo il risultato che si vuole ottenere e non come ottenerlo;
+\item \textbf{Migrazioni}: permette di creare delle migrazioni del database, ovvero consente di gestire le modifiche e l'aggiornamento automatico dello schema del database nel corso del tempo senza dover scrivere manualmente del codice SQL per ogni modifica;
+\item \textbf{Supporto per database multipili}: supporta una vasta gamma di database relazionali, inclusi SQL Server, MySQL, PostgreSQL, SQLite, ecc. permettendo di scrivere un unico codice che può fuzionare con i diversi provider di database senza dover modificare il codice sorgente.
+\end{itemize}
+In conclusione, l'utilizzo del framework Entity Framework Core semplifica lo sviluppo di applicazione che utilizzano un database relazionale, in quanto permette di scrivere meno codice e di gestire in modo automatico le operazioni di lettura e scrittura sul database.\\
 
-\subsection{Azure}
+\subsubsection{ASP.NET Core}
+ASP.NET Core è un framework open source, sviluppato da Microsoft, che permette di creare applicazioni web e API RESTful, utilizzando il linguaggio C\texttt{\#}. Le caratteristiche principali includono:
+\begin{itemize}
+\item \textbf{Cross-platform}: permette di creare applicazioni web e API RESTful che sono compatibili con Windows, Linux e macOS;
+\item \textbf{Modularità}: è basato su un'architettura modulare che consente di includere solo i componenti necessari per l'applicazione, offrendo un'ampia flessibilità e consentendo di ridurre le dimensioni della distribuzione dell'applicazione;
+\item \textbf{Performance}: grazie alla sua architettura leggera e ottimizata, offre prestazioni elevate e scalabilità;
+\item \textbf{Supporto per i protocolli HTTP}: permette di creare API RESTful che supportano i protocolli HTTP, come ad esempio HTTP/2 e WebSockets consentendo una comunicazione bidirezionale tra client e server;
+\item \textbf{Estensibilità}: offre un'ampia famma di estensioni e librerie di terze parti che permettono di aggiungere funzionalità personalizzate all'applicazione.
+\item \textbf{Middleware}: utilizza il concetto di middleware per gestire le richieste HTTP. I middleware possono essere utilizzati per eseguire operazioni comuni come l'autenticazione, l'autorizzazione, la memorizzazione nella cache e la registrazione delle richieste, semplificando lo sviluppo delle applicazioni web.
+\end{itemize}
+
+\subsubsection{Tusdotnet}
+Tusdotnet è una libreria open source per ASP.NET Core, che implementa il protocollo TUS, semplificando l'implementazione di esso fornendo un middleware che gestisce la logica di upload e il mantenimento di stato dell'upload. Grazie a esso è possibile gestire l'upload di file di grandi dimensioni in modo efficiente, in quanto permette di riprendere l'upload da dove si era interrotto, senza dover ricaricare l'intero file. Le principali caratteristiche di Tusdotnet sono:
+\begin{itemize}
+    \item \textbf{Resumable upload}: permette di riprendere l'upload di un file da dove si era interrotto, senza dover ricaricare l'intero file;
+    \item \textbf{Supporto per i file di grandi dimensioni}: permette di gestire l'upload di file di grandi dimensioni consentendo di superare i limiti imposti dalle API o dal server di hosting;
+    \item \textbf{Supporto per i metadata}: permette di aggiungere dei metadata ai file caricati, in modo tale da poterli utilizzare per aggiungere informazioni aggiuntive al file;
+    \item \textbf{Estensibilità}: offre un'architettura estensibile che permette di personalizzare ed estendere il comportamento dell'upload secondo le esigenze dell'applcazione. 
+\end{itemize}
+\subsubsection{Automapper}
+Automapper è una libreria open-source per .NET che semplifica la mappatura degli oggetti (object mapping) tra classi diverse. È progettato per ridurre il codice ripetitivo e la complessità associati alla mappatura degli oggetti, consentendo agli sviluppatori di gestire in modo efficiente la trasformazione dei dati da un tipo di oggetto a un altro.
+Le principali caratteristiche di Automapper sono:
+
+\begin{itemize}
+    \item \textbf{Mappatura convenzionale}: Automapper supporta la mappatura convenzionale degli oggetti, il che significa che può associare automaticamente le proprietà degli oggetti sorgente alle proprietà corrispondenti degli oggetti di destinazione, a meno che non sia specificato diversamente.
+  
+  \item \textbf{Configurazione semplice}: offre un'API semplice e intuitiva per la configurazione delle mappe. È possibile definire le regole di mappatura utilizzando metodi fluenti o attributi personalizzati.
+  
+  \item \textbf{Mappatura bidirezionale}: supporta la mappatura bidirezionale, consentendo di trasformare un oggetto sorgente in un oggetto di destinazione e viceversa. Ciò semplifica l'aggiornamento dei dati dell'oggetto di destinazione in base alle modifiche apportate all'oggetto sorgente.
+  
+  \item \textbf{Personalizzazione avanzata}: consente di personalizzare la mappatura degli oggetti in modo avanzato. È possibile gestire la logica complessa di trasformazione dei dati, definire mappe personalizzate per tipi di oggetti specifici e utilizzare espressioni lambda per la mappatura delle proprietà.
+  
+  \item \textbf{Supporto per relazioni complesse}: supporta la mappatura di relazioni complesse tra oggetti. È possibile gestire la mappatura di proprietà nidificate, collezioni di oggetti e relazioni uno-a-molti o molti-a-molti.
+\end{itemize}
+\subsection{Tecnlogie frontend}
+
+\subsubsection{React}
+RReact è una libreria JavaScript per la creazione di interfacce utente. È stata sviluppata da Facebook e viene utilizzata per la creazione di UI per applicazioni web e mobile. React è basato su sei principi di progettazione:
+\begin{itemize}
+\item \textbf{Componenti}: Le componenti sono elementi dell'interfaccia utente che possono essere riutilizzate in diverse parti dell'applicazione, una componente può essere una piccola porzione di pagina o un elemento complesso e autonomo, consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
+\item \textbf{State}: Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione, è immutabile, quindi non può essere modificato direttamente; per modificarlo, è necessario utilizzare il metodo \texttt{setState()} che viene fornito da React; quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
+\item \textbf{DOM}:
+Il DOM (Document Object Model) è una rappresentazione virtuale degli elementi della pagina, quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate, così facendo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
+\item \textbf{Route}:
+Le route vengono utilizzate per gestire la navigazione e la visualizzazione delle diverse pagine dell'applicazione, consentono di definire le corrispondenze tra gli url specifici e i componenti che devono essere visualizzati quando viene richiesto un url specifico.
+Per gestire il routing, React utilizza una libreria esterna chiamata React Router, la quale fornisce diverse componenti che consentono di definire le route e di stabilire le corrispondenze tra gli url e i componenti.\\
+\item \textbf{Context}:
+Il Context è un meccanismo che consente di condividere dati specifici con tutti i componenti figli di un componente padre, evitando di dover passare manualmente le props attraverso i livelli intermedi, è composto da due parti: il Provider e il Consumer; il primo è responsabile di definire il contesto e di fornire i dati, mentre il secondo accede ai dati forniti dal Provider.\\
+\item \textbf{Props}:
+Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che vengono utilizzati per passare dati da un componente padre a un componente figlio in modo unidirezionale.
+Il passaggio di dati tra la componente padre e la componente figlio avviene tramite gli attributi di quest'ultimo, mentre il passaggio di dati tra la componente figlio e la componente padre avviene tramite le funzioni callback.\\
+    \end{itemize}
+
+\subsubsection{React Player}
+React Player è una libreria open source, sviluppata da CookPete, permette di creare un player video personalizzabile, che permette di riprodurre video da diverse fonti, come ad esempio YouTube, Vimeo e file video.
+
+\subsubsection{Hls.js}
+Hls.js è una libreria open source, sviluppata da Dailymotion, permette di riprodurre video in formato HLS, in modo efficiente e compatibile con la maggior parte dei browser.
+
+\subsubsection{MUI}
+MUI è una libreria open source, sviluppata da MUI, permette di creare un'interfaccia utente moderna e personalizzabile, in modo efficiente.
+
+\subsection{Tecnlogie esterne}
+\subsubsection{Azure}
 Azure è una piattaforma di cloud computing, sviluppata da Microsoft nel 2010, permette di creare, testare, distribuire e gestire applicazioni e servizi tramite i data center di Microsoft.
 Offre una ampià varieta di servizi, come servizi di elaborazione, servizi di archiviazione e database, servizi di rete, servizi di intelligenza artificiale e servizi di sicurezza.\\
 Il vantaggio principale di Azure è la scalabilità, infatti permette di scalare le risorse di elaborazione e di rete in base alle esigenze dell'applicazione, inoltre permette di ridurre i costi di gestione, in quanto
 ci sono diversi piani di pagamento, che permettono di pagare solo le risorse utilizzate.\\
+
+\subsubsection{Azure Media Services}
+Azure Media Services è un servizio di Azure, che permette di creare, distribuire e gestire contenuti multimediali tramite i data center di Microsoft.
+
+\subsection{Strumenti utilizzati}
+\subsubsection{Visual Studio}
+Visual Studio è un IDE (Integrated Development Environment) sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.
+\subsubsection{Visual Studio Code}
+Visual Studio Code è un editor di codice sorgente sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.
