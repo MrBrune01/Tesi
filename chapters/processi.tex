@@ -21,7 +21,9 @@ Obbiettivi obbligatori:
 \begin{itemize}
     \item \textbf{O1} Realizzazione del POC;
     \item \textbf{O2} Simulazione di un utilizzo massimo dell'applicazione;
-    \item \textbf{O3} Stesura della documentazione;
+    \item \textbf{O3} Analisi dei costi;
+    \item \textbf{O4} Testing del backend
+    \item \textbf{O5} Stesura della documentazione;
 
 \end{itemize}
 \subsection{Obbiettivi desiderabili}
@@ -38,9 +40,33 @@ Obbiettivi facoltativi:
     \item \textbf{F2} Realizzazione di un'interfaccia grafica, funzionale e conforme agli standard qualitativi di un'applicazione moderna;
 
 \end{itemize}
+
 \section{Pianificazione}
 \label{sec:pianificazione}
-//tabella ripartizione ore\\
+\begin{table}%
+    \caption{Tabella di ripartizione delle ore}
+    \label{tab:ripartizione-ore}
+    \begin{tabularx}{\textwidth}{lXl}
+    \hline
+    \textbf{Durata in ore} & \textbf{Descrizione dell'attività}\
+    \hline
+    80 & Formazione sulle tecnologie \
+    30 & Studio delle basi dello stack tecnologico utilizzato dall'azienda e dei metodi di sviluppo \
+    50 & Studio e comparazione dei servizi offerti da Azure per realizzare la web app. Analisi di pro e contro dei vari servizi. \
+    \hline
+    180 & Sviluppo \
+    40 & Realizzazione della struttura di base della web app considerando le analisi di cui sopra \
+    100 & Implementazione di front-end, back-end e DB \
+    80 & Test, ottimizzazione, refactoring. Realizzazione di unit test. \
+    \hline
+    40 & Documentazione e Demo\
+    25 & Collaudo\
+    10 & Stesura documentazione\
+    1 & Incontro di presentazione della piattaforma con gli stakeholders\
+    2 & Live demo di tutto il lavoro di stage\
+    \hline
+    \end{tabularx}
+    \end{table}
 
 \section{Prodotti attesi}
 \section*{Prodotti attesi}
@@ -69,7 +95,7 @@ Obbiettivi facoltativi:
 \section{Risorse messe a disposizione}
 \label{sec:risorse-messe-a-disposizione}
 Per lo svolgimento dello stage sono state messe a disposizione le seguenti risorse:
-\brgin{itemize}
+\begin{itemize}
     \item \textbf{Account Azure DevOps} \\
     Account Azure DevOps per la gestione del progetto, delle sue attività e del versionamento del codice.
     \item \textbf{Account Azure} \\
