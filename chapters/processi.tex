@@ -4,77 +4,89 @@
 \section{Obiettivi}
 \label{sec:obiettivi}
 Seguono gli obbietti identificati nel piano di lavoro.
-
 \subsection{Notazione}
 \label{subsec:notazione}
 Gli obbiettivi sono cosi identificati:
-
 \begin{itemize}
     \item \textbf{O} per gli obbiettivi obbligatori;
     \item \textbf{D} per gli obbiettivi desiderabili;
     \item \textbf{F} per gli obbiettivi facoltativi.
 \end{itemize}
-
 \subsection{Obbiettivi obbligatori}
 Obbiettivi obbligatori:
-
 \begin{itemize}
     \item \textbf{O1} Realizzazione del POC;
-    \item \textbf{O2} Simulazione di un utilizzo massimo dell'applicazione;
+    \item \textbf{O2} Sviluppo Unitest backend;
     \item \textbf{O3} Analisi dei costi;
-    \item \textbf{O4} Testing del backend
-    \item \textbf{O5} Stesura della documentazione;
-
+    \item \textbf{O4} Stesura della documentazione.
 \end{itemize}
 \subsection{Obbiettivi desiderabili}
 Obbiettivi desiderabili:
 \begin{itemize}
     \item \textbf{D1} Analisi approfondita e comparazione di diverse architetture e sul loro impatto sui costi;
-    \item \textbf{D2} Analisi dei competitor per osservare la gestione dei problemi di carico elevato;
-
+    \item \textbf{D2} Analisi dei competitor per osservare la gestione dei problemi di carico elevato.
 \end{itemize}
 \subsection{Obbiettivi facoltativi}
 Obbiettivi facoltativi:
 \begin{itemize}
     \item \textbf{F1} Analisi dei sviluppi futuri;
-    \item \textbf{F2} Realizzazione di un'interfaccia grafica, funzionale e conforme agli standard qualitativi di un'applicazione moderna;
+    \item \textbf{F2} Realizzazione di un'interfaccia grafica, funzionale e conforme agli standard qualitativi di un'applicazione moderna.
 
 \end{itemize}
-
 \section{Pianificazione}
 \label{sec:pianificazione}
-\begin{table}%
-    \caption{Tabella di ripartizione delle ore}
+\begin{table}[!h]
     \label{tab:ripartizione-ore}
-    \begin{tabularx}{\textwidth}{lXl}
-    \hline
-    \textbf{Durata in ore} & \textbf{Descrizione dell'attività}\
-    \hline
-    80 & Formazione sulle tecnologie \
-    30 & Studio delle basi dello stack tecnologico utilizzato dall'azienda e dei metodi di sviluppo \
-    50 & Studio e comparazione dei servizi offerti da Azure per realizzare la web app. Analisi di pro e contro dei vari servizi. \
-    \hline
-    180 & Sviluppo \
-    40 & Realizzazione della struttura di base della web app considerando le analisi di cui sopra \
-    100 & Implementazione di front-end, back-end e DB \
-    80 & Test, ottimizzazione, refactoring. Realizzazione di unit test. \
-    \hline
-    40 & Documentazione e Demo\
-    25 & Collaudo\
-    10 & Stesura documentazione\
-    1 & Incontro di presentazione della piattaforma con gli stakeholders\
-    2 & Live demo di tutto il lavoro di stage\
-    \hline
+    \begin{tabularx}{\textwidth}{|c|X|}
+        \hline
+        \textbf{Durata in ore} & \textbf{Descrizione dell'attività} \\\hline
+        
+        \textbf{80} & \textbf{Formazione sulle tecnologie} \\ \hdashline
+            \multirow{2}{0cm}\\
+                \textit{30} &
+                \textit{Studio delle basi dello stack tecnologico utilizzato dall'azienda e dei metodi di sviluppo} \\
+                \textit{50} &
+                \textit{Studio e comparazione dei servizi offerti da Azure per realizzare la web app. Analisi di pro e contro dei vari servizi.} \\
+        \hline
+        
+        \textbf{180} & \textbf{Sviluppo} \\ \hdashline 
+        \multirow{3}{0cm}\\ 
+        \textit{40} & 
+        \textit{Realizzazione della struttura di base della web app considerando le analisi di cui sopra.} \\
+        \textit{100} & 
+        \textit{Implementazione di front-end, back-end e DB} \\
+        \textit{80} & 
+        \textit{Test, ottimizzazione, refactoring. Realizzazione di unit test.} \\
+        \hline
+        
+        \textbf{40} & \textbf{Documentazione e Demo}  \\ \hdashline 
+        \multirow{4}{0cm}\\ 
+        \textit{25} & 
+        \textit{Collaudo} \\
+        \textit{10} & 
+        \textit{Stesura documentazione finale} \\
+        \textit{1} & 
+        \textit{Incontro di presentazione della piattaforma con gli stakeholders} \\
+        \textit{2} & 
+        \textit{Live demo di tutto il lavoro di stage} \\
+        \hline
+        
+        \textbf{Totale ore} & \multicolumn{1}{|c|}{\textbf{300}} \\\hline
+        
+        
     \end{tabularx}
-    \end{table}
+    \caption{Tabella di ripartizione delle ore}
 
+\end{table}
 \section{Prodotti attesi}
-\section*{Prodotti attesi}
 \label{sec:prodotti-attesi}
-
 \begin{itemize}
     \item \textbf{POC} \\
-    Realizzazione di un POC che simuli un'applicazione cloud con un carico elevato di richieste.
+    Realizzazione di un POC funzionante che dimostri la fattibilità dell'idea proposta.
+    \item \textbf{Unit test} \\
+    Realizzazione completa degli unit test per il backend.\\
+    \item \textbf{Analisi dei costi} \\
+    Analisi dei costi simulando vari scenari di utilizzo della piattaforma.\\
     \item \textbf{Documentazione} \\
     Documentazione completa di tutte le fasi di sviluppo e analisi.
     \begin{enumerate}
@@ -89,9 +101,6 @@ Obbiettivi facoltativi:
         Documentazione completa degli artefatti sviluppati e definizione dei possibili casi d'uso.
     \end{enumerate}
 \end{itemize}
-
-
-
 \section{Risorse messe a disposizione}
 \label{sec:risorse-messe-a-disposizione}
 Per lo svolgimento dello stage sono state messe a disposizione le seguenti risorse:
@@ -103,3 +112,14 @@ Per lo svolgimento dello stage sono state messe a disposizione le seguenti risor
 \end{itemize}
 
 \section{Processo sviluppo prodotto}
+Il processo di sviluppo seguirà la pianificazione descritta nella sezione \ref{sec:pianificazione} e sarà suddiviso nelle seguenti fasi:
+\begin{enumerate}
+    \item \textbf{Formazione} \\
+    Studio delle tecnologie e dei metodi di sviluppo utilizzati dall'azienda.
+    \item \textbf{Analisi} \\
+    Analisi delle tecnologie e dei servizi offerti da Azure per la realizzazione del POC.
+    \item \textbf{Sviluppo} \\
+    Sviluppo del POC e delle sue componenti.
+    \item \textbf{Collaudo} \\
+    Collaudo del POC e documentazione finale.
+\end{enumerate}
