@@ -26,8 +26,8 @@ In caso di produzione dell'applicazione, è necessario stimare il numero di uten
 È stato realizzato un modello matematico che stima in base ai dati messi in input come numero di utenti iscritti, percentuale di utenti attivi giornalmente, durata media di visione per utente, orari e ampiezza del picco, qualità video richiesta, il costo medio giornaliero dell'applicazione, che prevede i costi di codifica, trasferimento e distribuzione, vengono riportati tre scenari.
 Per congruenza dei dati, ogni scenario prevede gli stessi dati in input tranne che per il numero di iscritti:
 
-\begin{table}[!h]
-    \label{tab:ripartizione-ore}
+\begin{table}[H]
+    \label{tab:dati-input}
     \begin{tabularx}{\textwidth}{|c|X|}
         \hline
         \textbf{Oggetto} & \textbf{Valore} \\\hline
@@ -54,5 +54,96 @@ Per congruenza dei dati, ogni scenario prevede gli stessi dati in input tranne c
 \end{table}
 
 \subsubsection{Caso 10000 utenti iscritti}
+Per il primo scenario, si è scelto di considerare 10000 utenti iscritti, che è un numero ragionevole per una WebApp di questo tipo all'inizio della sua vita.\\
+\begin{table}[H]
+    \label{tab:costi-10000}
+    \begin{tabularx}{\textwidth}{|c|X|}
+        \hline
+        \textbf{Oggetto} & \textbf{Valore} \\\hline
+        
+        \textbf{Costo App Service Giornaliero} & {4.416€} \\ 
+        \hline
+        \textbf{GB usati giornalmente} & {201 GB} \\ 
+        \hline
+        \textbf{Costo di trasferimento} & {2.014€}\\
+        \hline
+        \textbf{Costo totale di Premium Unit Streaming} & {4.17€}\\  
+        \hline
+        \textbf{Totale giornaliero} & {10.60€}\\  
+        \hline
+        \textbf{Totale mensile} & {328.45€}\\  
+        \hline
+        \textbf{Totale annuale} & {3.867.23€}\\  
+        \hline
+    \end{tabularx}
+    \caption{Tabella costi con 10000 utenti iscritti}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{images/costi/10kuser.png}
+    \caption{Grafico utenti/orario con 10000 utenti iscritti}
+    \label{fig:costi-10000}
+\end{figure}
 \subsubsection{Caso 100000 utenti iscritti}
+Per il secondo scenario, si è scelto di considerare 100000 utenti iscritti, che è un buon numero di utenti per una WebApp di questo tipo in caso iniziasse a crescere.\\
+\begin{table}[H]
+    \label{tab:costi-100000}
+    \begin{tabularx}{\textwidth}{|c|X|}
+        \hline
+        \textbf{Oggetto} & \textbf{Valore} \\\hline
+        
+        \textbf{Costo App Service Giornaliero} & {4.416€} \\ 
+        \hline
+        \textbf{GB usati giornalmente} & {2014 GB} \\ 
+        \hline
+        \textbf{Costo di trasferimento} & {20.142€}\\
+        \hline
+        \textbf{Costo totale di Premium Unit Streaming} & {7.02€}\\  
+        \hline
+        \textbf{Totale giornaliero} & {31.57€}\\  
+        \hline
+        \textbf{Totale mensile} & {978.80€}\\  
+        \hline
+        \textbf{Totale annuale} & {11524.64€}\\  
+        \hline
+    \end{tabularx}
+    \caption{Tabella costi con 100000 utenti iscritti}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{images/costi/100kuser.png}
+    \caption{Grafico utenti/orario con 100000 utenti iscritti}
+    \label{fig:costi-100000}
+\end{figure}
+
 \subsubsection{Caso 1000000 utenti iscritti}
+Per il terzo scenario, si è scelto di considerare 1000000 utenti iscritti, che è un numero importante di utenti in caso la WebApp avesse un grande successo.\\
+\begin{table}[H]
+    \label{tab:costi-1000000}
+    \begin{tabularx}{\textwidth}{|c|X|}
+        \hline
+        \textbf{Oggetto} & \textbf{Valore} \\\hline
+        
+        \textbf{Costo App Service Giornaliero} & {4.416€} \\ 
+        \hline
+        \textbf{GB usati giornalmente} & {20142 GB} \\ 
+        \hline
+        \textbf{Costo di trasferimento} & {201.416€}\\
+        \hline
+        \textbf{Costo totale di Premium Unit Streaming} & {11.13€}\\  
+        \hline
+        \textbf{Totale giornaliero} & {216.96€}\\  
+        \hline
+        \textbf{Totale mensile} & {6725.85€}\\  
+        \hline
+        \textbf{Totale annuale} & {79191.41€}\\  
+        \hline
+    \end{tabularx}
+    \caption{Tabella costi con 1000000 utenti iscritti}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{images/costi/1000kuser.png}
+    \caption{Grafico utenti/orario con 1000000 utenti iscritti}
+    \label{fig:costi-1000000}
+\end{figure}
