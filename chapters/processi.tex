@@ -1,9 +1,10 @@
 \chapter{Descrizione dello stage}
+\label{cap:analisi-requisiti}
 \intro{In questo capitolo verrà descritto lo stage, partendo dalla descrizione di esso, gli obiettivi, la pianificazione, i risultati attesi ecc..}\\
 \label{cap:descrizione-stage}
 \section{Obiettivi}
 \label{sec:obiettivi}
-Seguono gli obbietti identificati nel piano di lavoro.
+L'obiettivo principale di questo progetto di stage è quello di realizzare un PoC di una WebApp che permetta il caricamento e la visualizzazione di video in streaming utilizzando i servizi di Azure, realizzando la progettazione e lo sviluppo sia del modulo backend che del modulo frontend.
 \subsection{Notazione}
 \label{subsec:notazione}
 Gli obiettivi sono cosi identificati:
@@ -13,80 +14,51 @@ Gli obiettivi sono cosi identificati:
     \item \textbf{F} per gli obiettivi facoltativi.
 \end{itemize}
 \subsection{Obiettivi obbligatori}
-obiettivi obbligatori:
+\label{sec:requsitiobb}
+Vengono elencati gli obiettivi obbligatori:
 \begin{itemize}
-    \item \textbf{O1} Realizzazione del POC;
+    \item \textbf{O1} Realizzazione del PoC;
+    \begin{itemize}
+        \item\textbf{O1.1}: Si deve poter aggiungere un evento;
+        \item\textbf{O1.2}: Si deve poter aggiungere un utente;
+        \item\textbf{O1.3}: Si deve poter aggiungere un video ad un evento;
+        \item\textbf{O1.4}: Si deve poter modificare i dati di un evento;
+        \item\textbf{O1.5}: Si deve poter modificare i dati relativi ad un utente;
+        \item\textbf{O1.6}: Si deve poter modificare i dati relativi ad un video;
+        \item\textbf{O1.7}: Si deve poter visualizzare in streaming un video precedentemente caricato;
+        \item\textbf{O1.8}: Si deve poter controllare lo stato di un video;
+        \item\textbf{O1.9}: Si deve poter modificare la qualità del video che viene ripodotto;
+        \item\textbf{O1.10}: Si deve poter eliminare un evento;
+        \item\textbf{O1.11}: Si deve poter eliminare un user;
+        \item\textbf{O1.12}: Si deve poter eliminare un video.
+    \end{itemize}
     \item \textbf{O2} Sviluppo Unit test backend;
-    \item \textbf{O3} Analisi dei costi;
-    \item \textbf{O4} Stesura della documentazione.
+    \item \textbf{O3} Analisi dei costi di mantenimento della WebApp;
+    \item \textbf{O4} Stesura della documentazione relativa alla progettazione e sviluppo della WebApp.
 \end{itemize}
 \subsection{Obiettivi desiderabili}
-obiettivi desiderabili:
+Vengono elencati gli obiettivi desiderabili:
 \begin{itemize}
     \item \textbf{D1} Analisi approfondita e comparazione di diverse architetture e sul loro impatto sui costi;
     \item \textbf{D2} Analisi dei competitor per osservare la gestione dei problemi di carico elevato.
 \end{itemize}
 \subsection{Obiettivi facoltativi}
-obiettivi facoltativi:
+Vengono elencati gli obiettivi facoltativi:
 \begin{itemize}
     \item \textbf{F1} Analisi dei sviluppi futuri;
     \item \textbf{F2} Realizzazione di un'interfaccia grafica, funzionale e conforme agli standard qualitativi di un'applicazione moderna.
 
 \end{itemize}
-\section{Pianificazione}
-\label{sec:pianificazione}
-\begin{table}[!h]
-    \label{tab:ripartizione-ore}
-    \begin{tabularx}{\textwidth}{|c|X|}
-        \hline
-        \textbf{Durata in ore} & \textbf{Descrizione dell'attività} \\\hline
-        
-        \textbf{80} & \textbf{Formazione sulle tecnologie} \\ \hdashline
-            \multirow{2}{0cm}\\
-                \textit{30} &
-                \textit{Studio delle basi dello stack tecnologico utilizzato dall'azienda e dei metodi di sviluppo} \\
-                \textit{50} &
-                \textit{Studio e comparazione dei servizi offerti da Azure per realizzare la web app. Analisi di pro e contro dei vari servizi.} \\
-        \hline
-        
-        \textbf{180} & \textbf{Sviluppo} \\ \hdashline 
-        \multirow{3}{0cm}\\ 
-        \textit{40} & 
-        \textit{Realizzazione della struttura di base della web app considerando le analisi di cui sopra.} \\
-        \textit{100} & 
-        \textit{Implementazione di front-end, back-end e DB} \\
-        \textit{80} & 
-        \textit{Test, ottimizzazione, refactoring. Realizzazione di unit test.} \\
-        \hline
-        
-        \textbf{40} & \textbf{Documentazione e Demo}  \\ \hdashline 
-        \multirow{4}{0cm}\\ 
-        \textit{25} & 
-        \textit{Collaudo} \\
-        \textit{10} & 
-        \textit{Stesura documentazione finale} \\
-        \textit{1} & 
-        \textit{Incontro di presentazione della piattaforma con gli stakeholders} \\
-        \textit{2} & 
-        \textit{Live demo di tutto il lavoro di stage} \\
-        \hline
-        
-        \textbf{Totale ore} & \multicolumn{1}{|c|}{\textbf{300}} \\\hline
-        
-        
-    \end{tabularx}
-    \caption{Tabella di ripartizione delle ore}
-
-\end{table}
 \section{Prodotti attesi}
 \label{sec:prodotti-attesi}
+Vengono elencati i prodotti attesi durante il periodo di stage.
 \begin{itemize}
     \item \textbf{POC} \\
-    Realizzazione di un POC funzionante che dimostri la fattibilità dell'idea proposta.
+    Realizzazione di un PoC funzionante che rispetti i requisiti obbligatori elencati sopra \ref{sec:requsitiobb}
     \item \textbf{Unit test} \\
     Realizzazione completa degli unit test per il backend.\\
     \item \textbf{Analisi dei costi} \\
-    Analisi dei costi simulando vari scenari di utilizzo della piattaforma.\\
+    Analisi dei costi di mantenimento simulando vari scenari di utilizzo della piattaforma.\\
     \item \textbf{Documentazione} \\
     Documentazione completa di tutte le fasi di sviluppo e analisi.
     \begin{enumerate}
@@ -109,7 +81,7 @@ Per lo svolgimento dello stage sono state messe a disposizione le seguenti risor
 \end{itemize}
 
 \section{Processo sviluppo prodotto}
-Il processo di sviluppo seguirà la pianificazione descritta nella sezione \ref{sec:pianificazione} e sarà suddiviso nelle seguenti fasi:
+Il processo di sviluppo seguirà la pianificazione descritta nel piano di lavoro e sarà suddiviso nelle seguenti fasi:
 \begin{enumerate}
     \item \textbf{Formazione} \\
     Studio delle tecnologie e dei metodi di sviluppo utilizzati dall'azienda.
