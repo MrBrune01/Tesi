@@ -16,7 +16,7 @@ Il backend è composto da un unico progetto "AdMaioraStreamingPOC", che contiene
 \subsubsection{API}
 Il layer API è il livello più esterno dell'applicazione, si occupa di gestire le richieste HTTP in arrivo dal frontend. È divisa in due soluzioni: Controller e DTO.\\
 \begin{itemize}
-    \item \textbf{Controllers}:sono le classi che si occupano di gestire le richieste HTTP in arrivo dal frontend, utilizzano il framework ASP.NET Core e la libreria AutoMapper per la conversione dei DTO in entità e viceversa; inoltre, utilizzano la dependency injection per iniettare le dipendenze necessarie dalle classi di Service presenti nel layer Core, l'uso di questa tecnica rende i controller indipendenti dalle implementazioni concrete delle dipendenze.\\
+    \item \textbf{Controllers}: sono le classi che si occupano di gestire le richieste HTTP in arrivo dal frontend, utilizzano il framework ASP.NET Core e la libreria AutoMapper per la conversione dei DTO in entità e viceversa; inoltre, utilizzano la dependency injection per iniettare le dipendenze necessarie dalle classi di Service presenti nel layer Core, l'uso di questa tecnica rende i controller indipendenti dalle implementazioni concrete delle dipendenze.\\
     Per ogni entità del database è stato creato un controller, che contiene metodi CRUD e non, per gestire le richieste HTTP in modo completo. Quando un controller riceve una richiesta HTTP, utilizza i metodi presenti nel Service per gestire la richiesta, e restituisce al frontend il risultato della richiesta in formato JSON.\\
     \item \textbf{DTO}: sono classi che contengono la struttura dei dati che vengono scambiati tra il frontend e il backend.
     Per ogni entità del database sono stati creati tre DTO: uno per la creazione, uno per l'aggiornamento e uno per la visualizzazione; così facendo, si evita di scambiare dati inutili tra frontend e backend, e si evita di dover gestire la serializzazione e deserializzazione di dati inutili. Inoltre, utilizzando i DTO, si evita di dover esporre le entità del database al frontend, favorendo la separazione tra frontend e backend.\\
@@ -68,6 +68,7 @@ La cartella Context, contiene i file di contesto, è composta da tre file: Fetch
 \subsection{Interfaccia grafica}
 \subsubsection{Pagina Home}
 La pagina Home è la pagina principale dell'applicazione, contiene una grid di tutti gli eventi disponibili, e un menù laterale che permette la navigazione tra le pagine.\\
+In figura \ref{fig:home} è rappresentano un esempio della pagina home sviluppata.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/interface/home.png}
@@ -76,6 +77,7 @@ La pagina Home è la pagina principale dell'applicazione, contiene una grid di t
 \end{figure}
 \subsubsection{Pagina Eventi}
 Quando si clicca su un evento nella pagina Home, si viene reindirizzati alla pagina dell'evento, che contiene una grid con tutti i video dell'evento.\\
+In figura \ref{fig:eventi} è rappresentano un esempio della pagina di un evento inserito nel sistema.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/interface/events.png}
@@ -84,6 +86,7 @@ Quando si clicca su un evento nella pagina Home, si viene reindirizzati alla pag
 \end{figure}
 \subsubsection{Pagina Video}
 Quando si clicca su un video nella pagina Eventi, si viene reindirizzati alla pagina del video, che contiene il player del video e i pulsanti per la gestione.\\
+In figura \ref{fig:video} è rappresentano un esempio di visualizzazione di un video.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/interface/video.png}
@@ -92,18 +95,21 @@ Quando si clicca su un video nella pagina Eventi, si viene reindirizzati alla pa
 \end{figure}
 \subsubsection{Pagina Gestione}
 Le pagine di gestione sono tre, una per gli eventi, una per i video e una per gli utenti. Ogni pagina contiene una tabella con tutti gli elementi, ogni riga contiene due pulsanti, uno per modificare l'elemento e uno per eliminarlo. Inoltre è presente anche un pulsante per aggiungere un nuovo elemento attraverso un dialog.\\
+In figura \ref{fig:gestionevideo} è rappresentana la pagina della tabella per la gestione dei video.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/interface/videotable.png}
     \caption{Pagina Gestione dei video}
     \label{fig:gestionevideo}
 \end{figure}
+Quando viene premuta l'icona della matita, si apre un dialog, come in figura \ref{fig:modifica video}, tramite la quale l'utente può modificare i dati del video.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/interface/editvideo.png}
     \caption{Dialog Modifica Video}
     \label{fig:modifica video}
 \end{figure}
+Quando viene premuto il bottone di aggiunta, si apre un dialog, come in figura \ref{fig:aggiuntavideo}, tramite il quale l'utente può selezionare un video da caricare e i dati relativi ad esso.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/interface/addvideo.png}
