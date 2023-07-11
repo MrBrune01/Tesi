@@ -7,6 +7,7 @@ In questo capitolo verranno descritte le scelte progettuali effettuate per la pr
 La progettazione del database è stata effettuata sulla base dei requisiti funzionali e non funzionali individuati in fase di analisi.\\
 Il database è stato progettato per memorizzare i dati relativi agli eventi, video e utenti.\\
 Per la sua progettazione è stato utilizzato il framework Entity Framework Core, che permette di definire il modello del database utilizzando classi e proprietà direttamente dal codice. Non è stato necessario scrivere codice SQL per la creazione del database, ma è stato sufficiente definire le classi e le proprietà dei modelli e successivamente eseguire le migrazioni per aggiornare il database.\\
+\pagebreak
 \subsection{Modello del database}
 Come mostrato nel digramma del database nella figura \ref{fig:schema database}, il database è composto da tre tabelle: Event, Video e User.\\
 La tabella Event contiene i dati relativi agli eventi, come l'id, il titolo, l'id dell'user che l'ha creato, la data di inizio e di fine e l'URL alla thumbnail. La tabella Video contiene i dati relativi ai video, come l'id, il titolo, l'URL alla thumbnail, l'URL al video e l'id dell'evento a cui appartiene. La tabella User contiene i dati relativi agli utenti, come l'id e il nome.
@@ -16,6 +17,9 @@ La tabella Event contiene i dati relativi agli eventi, come l'id, il titolo, l'i
     \caption{Diagramma del database}
     \label{fig:schema database}
 \end{figure}
+
+\pagebreak
+
 \section{Progettazione del frontend}
 La progettazione del frontend è sviluppata sulla base dell'utilizzo di React come libreria principale per lo sviluppo dell'interfaccia utente.
 %  Verranno illustrati i principi di progettazione di React, come la creazione di componenti riutilizzabili, la gestione dello stato dell'applicazione e la definizione delle rotte per la navigazione. Saranno presentati anche i diagrammi dell'architettura del frontend, mostrando come i componenti si integrano per creare un'esperienza utente coerente.
@@ -37,6 +41,12 @@ La progettazione del backend è sviluppata sulla base dell'utilizzo del linguagg
 Il backend è sviluppato utilizzando un template disposto dall'azienda, che utilizza una separazione delle componenti in layer distinti, dove ognuno ha un compito specifico.\\
 Il template è composto da tre layer fondamentali: API, Core e Data; il primo è responsabile della comunicazione con il frontend, il secondo è responsabile della gestione dello stato dell'applicazione e il terzo è responsabile della comunicazione con il database.\\
 Lo schema rappresentativo dell'architettura è presente nella figura \ref{fig:Diagrammabackend}.
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[scale=0.5]{diagrammi/backend.png} 
+    \caption{Diagramma architettura del backend}
+    \label{fig:Diagrammabackend}
+\end{figure}
 \subsubsection{API}
 È responsabile della comunicazione con il frontend, è composto da due parti: i controller e i DTO. Il primo ha il compito di gestire le richieste HTTP provenienti dal frontend e coordinare le azioni richieste per soddisfarle: quando un controller riceve una richiesta, estrae i dati necessari dalla richiesta e interagisce con i layer Core per fornire una risposta al Client. 
 Il secondo ha il compito di definire la struttura dei dati che vengono trasferiti tra il frontend e il backend durante la chiamata, in modo da consentire una comunicazione standardizzata e senza ambiguità. I DTO possono includere solo i campi necessari per soddisfare una certa richiesta, così facendo, riducono il trasferimento di dati inutili e rendono la comunicazione più veloce; oltre a ciò, sono utilizzati anche per la validazione dei dati, garantendo che i dati ricevuti dal frontend siano validi.\\
@@ -44,12 +54,7 @@ Il secondo ha il compito di definire la struttura dei dati che vengono trasferit
 Il layer Core è responsabile della gestione dello stato dell'applicazione. Riceve le richieste dal layer API e le elabora, interagendo con il layer Data per ottenere i dati necessari; è composto da due parti: i models e i service. I models rappresentano la struttura dei dati che vengono utilizzati dall'applicazione per effettuare le operazioni richieste; i service, invece, gestiscono la logica dell'applicazione, contengono i metodi che vengono chiamati dai controller, che eseguono operazioni con i servizi esterni e con il layer Data.\\
 \subsubsection{Data}
 Il layer Data è responsabile dell'accesso ai dati, è composto da tre parti: Context, Entity e Provider. Il primo ha il compito di gestire la connessione con il database, definisce la struttura del database e fornisce i metodi per accedervi; il secondo ha il compito di definire la struttura dei dati che vengono salvati nel database; il terzo ha il compito di gestire la comunicazione con il database, fornisce i metodi per accedere ai dati per effettuare le operazioni di lettura e scrittura.\\
-\begin{figure}[H] 
-    \centering 
-    \includegraphics[scale=0.5]{diagrammi/backend.png} 
-    \caption{Diagramma architettura del backend}
-    \label{fig:Diagrammabackend}
-\end{figure}
+
 \section{Integrazione con Azure}
 Azure è una piattaforma cloud proprietaria di Microsoft che offre vari servizi.
 La WebApp è integrata con Azure per la gestione del database, gestione dei video e per la distribuzione dell'applicazione, sono utilizzati i seguenti servizi: SQL Server, Azure Media Service e Azure App Service.\\
