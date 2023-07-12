@@ -3,7 +3,7 @@
 \intro{In questo capitolo verranno descritti i fondamenti teorici necessari per la comprensione del lavoro svolto.}\\
 
 \section{Concetti di video on-demand e streaming}
-Video on-demand (tradotto come video su richiesta) o VOD, è un sistema che permette di accedere a contenuti multimediali (video, audio, immagini) 
+Video on-demand (VOD) tradotto video su richiesta, è un sistema che permette di accedere a contenuti multimediali (video, audio, immagini) 
 in qualsiasi momento e in qualsiasi luogo tramite una connessione internet.
 Contrariamente alla trasmissione televisiva tradizionale, nella quale gli utenti sono limitati da un palinsesto predefinito, 
 il VOD dà la possibilità agli utenti di scegliere quale contenuto guardare e quando usufruirne.\\
@@ -36,16 +36,16 @@ Per la trasmissione di contenuti multimediali, esistono diversi protocolli e tec
 
 \begin{itemize}
 
-    \item \textbf{HTTP Live Streaming} o HLS è un protocollo di streaming sviluppato da Apple nel 2009. Permette la trasmissione in streaming di contenuti multimediali frammentando il contenuto in segmenti di file HTTP e distribuendolo ai dispositivi client utilizzando il medesimo protocollo.\\
+    \item \textbf{HTTP Live Streaming} (HLS) è un protocollo di streaming sviluppato da Apple nel 2009. Permette la trasmissione in streaming di contenuti multimediali frammentando il contenuto in segmenti di file HTTP e distribuendolo ai dispositivi client utilizzando il medesimo protocollo.\\
     HLS è adattivo: il client può cambiare la qualità del video in base alla larghezza di banda disponibile senza interrompere la riproduzione.
     È nativamente compatibile con i dispositivi Apple ma è supportato anche dalla maggior parte dei dispositivi e browser che supportano HTTP, non richiedendo l'installazione di plugin aggiuntivi.\\
 
-    \item \textbf{Dynamic Adaptive Streaming over HTTP} o DASH è un protocollo di streaming sviluppato dal Moving Picture Experts Group (MPEG), permette la trasmissione di contenuti multimediali
+    \item \textbf{Dynamic Adaptive Streaming over HTTP} (DASH) è un protocollo di streaming sviluppato dal Moving Picture Experts Group (MPEG), permette la trasmissione di contenuti multimediali
     attraverso il protocollo HTTP.\\
     DASH suddivide il contenuto in segmenti e li trasmette ai dispositivi client tramite HTTP, permettendo un adattamento dinamico della qualità del video in base alla larghezza di banda disponibile.
     Offre una vasta gamma di scelta del formato video e codec, permettendo di scegliere il formato più adatto per il dispositivo client.\\
 
-    \item \textbf{Real Time Messaging Protocol} o RTMP è un protocollo di streaming sviluppato da Adobe nel 2012, permette la trasmissione di contenuti multimediali in tempo reale,
+    \item \textbf{Real Time Messaging Protocol} (RTMP) è un protocollo di streaming sviluppato da Adobe nel 2012, permette la trasmissione di contenuti multimediali in tempo reale,
     divide il contenuto in pacchetti e li trasmette ai dispositivi client tramite TCP o UDP, consente una comunicazione bidirezionale tra il server e il dispositivo client utilizzando un flusso continuo.\\
     RTMP è un protocollo di streaming non adattivo, ovvero non permette di cambiare la qualità del video in base alla larghezza di banda disponibile, ma permette di 
     trasmettere contenuti in tempo reale con una bassa latenza.\\
@@ -102,7 +102,7 @@ C\texttt{\#} è un linguaggio di programmazione orientato agli oggetti, sviluppa
 Ha un ampio supporto per il framework .NET, il quale offre una vasta gamma di librerie e strumenti per lo sviluppo di applicazioni backend e non solo, inoltre, il framework .NET include
 ASP.NET, un framework utilizzato per lo sviluppo di applicazioni web, che consente la creazione di API RESTful con facilità, grazie anche alla gestione avanzata delle richieste HTTP.\\
 \subsubsection{Entity Framework Core}
-Entity Framework Core è un ORM (Object Relational Mapper) open source, sviluppato da Microsoft, che permette di mappare le entità del database con le classi del codice, in modo tale da permettere agli sviluppatori di utilizzare le classi per interagire con il database, senza scrivere query SQL, offre una mappatura ORM che traduce in modo automatico le operazioni di lettura e scrittura degli oggetti nell'applicazione in istruzioni SQL eseguite sul database sottostante.\\
+Entity Framework Core è un Object Relational Mapper (ORM) open source, sviluppato da Microsoft, che permette di mappare le entità del database con le classi del codice, in modo tale da permettere agli sviluppatori di utilizzare le classi per interagire con il database, senza scrivere query SQL, offre una mappatura ORM che traduce in modo automatico le operazioni di lettura e scrittura degli oggetti nell'applicazione in istruzioni SQL eseguite sul database sottostante.~\footnote{\url{https://learn.microsoft.com/it-it/ef/core/}}\\
 Le principali caratteristiche di Entity Framework Core sono:
 \begin{itemize}
 \item \textbf{Mappatura delle entità}: consente di definire classi che rappresentano le tabelle del database e di specificare le relazioni tra di esse in modo automatico;
@@ -122,7 +122,7 @@ ASP.NET Core è un framework open source, sviluppato da Microsoft, che permette 
 \item \textbf{Middleware}: utilizza il concetto di middleware per gestire le richieste HTTP. I middleware possono essere utilizzati per eseguire operazioni comuni come l'autenticazione, l'autorizzazione, la memorizzazione nella cache e la registrazione delle richieste, semplificando lo sviluppo delle applicazioni web.
 \end{itemize}
 \subsubsection{Tusdotnet}
-Tusdotnet è una libreria open source per ASP.NET Core, che implementa il protocollo TUS, semplificando l'implementazione di esso fornendo un middleware che gestisce la logica di upload e il mantenimento di stato dell'upload. Grazie a esso è possibile gestire l'upload di file di grandi dimensioni in modo efficiente, in quanto permette di riprendere l'upload da dove si era interrotto, senza dover ricaricare l'intero file. Le principali caratteristiche di Tusdotnet sono:
+Tusdotnet è una libreria open source per ASP.NET Core, che implementa il protocollo TUS.io, semplificando l'implementazione di esso fornendo un middleware che gestisce la logica di upload e il mantenimento di stato dell'upload. Grazie a esso è possibile gestire l'upload di file di grandi dimensioni in modo efficiente, in quanto permette di riprendere l'upload da dove si era interrotto, senza dover ricaricare l'intero file. Le principali caratteristiche di Tusdotnet sono:
 \begin{itemize}
     \item \textbf{Resumable upload}: permette di riprendere l'upload di un file da dove si era interrotto, senza dover ricaricare l'intero file;
     \item \textbf{Supporto per i file di grandi dimensioni}: permette di gestire l'upload di file di grandi dimensioni consentendo di superare i limiti imposti dalle API o dal server di hosting;
@@ -140,12 +140,12 @@ Le principali caratteristiche di Automapper sono:
 \end{itemize}
 \subsection{Tecnologie frontend}
 \subsubsection{React}
-RReact è una libreria JavaScript per la creazione di interfacce utente. È stata sviluppata da Facebook e viene utilizzata per la creazione di UI per applicazioni web e mobile. React è basato su sei principi di progettazione:
+React è una libreria JavaScript per la creazione di interfacce utente. È stata sviluppata da Facebook e viene utilizzata per la creazione di UI per applicazioni web e mobile. React è basato su sei principi di progettazione:
 \begin{itemize}
 \item \textbf{Componenti}: Le componenti sono elementi dell'interfaccia utente che possono essere riutilizzate in diverse parti dell'applicazione, una componente può essere una piccola porzione di pagina o un elemento complesso e autonomo, consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
 \item \textbf{State}: Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione, è immutabile, quindi non può essere modificato direttamente; per modificarlo, è necessario utilizzare il metodo \texttt{setState()} che viene fornito da React; quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
 \item \textbf{DOM}:
-Il DOM (Document Object Model) è una rappresentazione virtuale degli elementi della pagina, quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate, così facendo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
+Il Document Object Model (DOM) è una rappresentazione virtuale degli elementi della pagina, quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate, così facendo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
 \item \textbf{Route}:
 Le route vengono utilizzate per gestire la navigazione e la visualizzazione delle diverse pagine dell'applicazione, consentono di definire le corrispondenze tra gli url specifici e i componenti che devono essere visualizzati quando viene richiesto un url specifico.
 Per gestire il routing, React utilizza una libreria esterna chiamata React Router, la quale fornisce diverse componenti che consentono di definire le route e di stabilire le corrispondenze tra gli url e i componenti.\\
@@ -156,7 +156,7 @@ Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che ve
 Il passaggio di dati tra la componente padre e la componente figlio avviene tramite gli attributi di quest'ultimo, mentre il passaggio di dati tra la componente figlio e la componente padre avviene tramite le funzioni callback.\\
     \end{itemize}
 \subsubsection{React Player}
-React Player è una libreria open-source per React, fornisce un componente React che semplifica l'integrazione di player multimediali come video e audio nelle applicazioni React, permette di incorporare facilmente file multimediali da varie fonti, gestirne la riproduzione e controllare il comportamento del player.\\
+React Player è una libreria open-source per React, fornisce un componente React che semplifica l'integrazione di player multimediali come video e audio nelle applicazioni React, permette di incorporare facilmente file multimediali da varie fonti, gestirne la riproduzione e controllare il comportamento del player.~\footnote{\url{https://github.com/cookpete/react-player/}}\\
 Le principali caratteristiche di React Player sono:
 \begin{itemize}
     \item{Supporto per diversi formati video}: supporta una vasta gamma di formati video, tra cui MP4, WebM, Ogg, FLV, HLS, DASH e YouTube;
@@ -167,8 +167,9 @@ Le principali caratteristiche di React Player sono:
 \end{itemize}
 React Player semplifica notevolmente l'integrazione di file multimediali nelle applicazioni React, offrendo un'API semplice e intuitiva per il controllo della riproduzione. È una scelta popolare tra gli sviluppatori React per incorporare e gestire la riproduzione di video e audio in modo efficace e flessibile.\\
 \subsubsection{Hls.js}
-hls.js è una libreria JavaScript open-source che consente la riproduzione di file video utilizzando il protocollo di streaming HTTP Live Streaming (HLS), è un protocollo di streaming sviluppato da Apple per la distribuzione di contenuti multimediali su Internet.\\
+hls.js è una libreria JavaScript open-source che consente la riproduzione di file video utilizzando il protocollo di streaming HTTP Live Streaming (HLS), è un protocollo di streaming sviluppato da Apple per la distribuzione di contenuti multimediali su Internet.~\footnote{\url{https://github.com/video-dev/hls.js}}\\
 hls.js è progettato per funzionare nel browser utilizzando la tecnologia HTML5 e JavaScript senza richiedere plugin aggiuntivi. Supporta il caricamento e la riproduzione di file video HLS in formato MPEG-TS (Transport Stream) suddivisi in segmenti, consentendo la riproduzione continua e adattiva dei contenuti video.\\
+
 Le principali caratteristiche di hls.js sono:
 \begin{itemize}
     \item{Riproduzione HLS}: consente di riprodurre file video HLS direttamente nel browser utilizzando la tecnologia HTML5 e JavaScript, senza dipendere da plugin o tecnologie aggiuntive.
@@ -179,7 +180,7 @@ Le principali caratteristiche di hls.js sono:
 \end{itemize}
 Hls.js è ampiamente utilizzato per la riproduzione di video HLS nel browser e offre un modo efficace e affidabile per gestire lo streaming di contenuti video attraverso HLS. Grazie alla sua natura open-source, la libreria è in costante sviluppo e supporta una vasta gamma di funzionalità per migliorare l'esperienza di riproduzione dei video HLS.
 \subsubsection{MUI}
-MUI (Material-UI) è una libreria open-source per la creazione di interfacce utente reattive e basate sul design dei Material UI di Google. MUI è basata sul framework React e offre un set di componenti React riutilizzabili, stili predefiniti e strumenti per la creazione di applicazioni web moderne e attraenti.\\
+MUI (Material-UI) è una libreria open-source per la creazione di interfacce utente reattive e basate sul design dei Material UI di Google. MUI è basata sul framework React e offre un set di componenti React riutilizzabili, stili predefiniti e strumenti per la creazione di applicazioni web moderne e attraenti. ~\footnote{\url{https://mui.com/}}\\
 Le principali caratteristiche di MUI sono:
 \begin{itemize}
     \item \textbf{Componenti reattivi}: MUI fornisce una vasta gamma di componenti React, come pulsanti, modali, form, tabelle, navigazione e molto altro ancora. Questi componenti sono progettati per adattarsi e rispondere alle diverse dimensioni dello schermo, garantendo un'esperienza utente coerente su dispositivi desktop e mobili.
@@ -191,7 +192,7 @@ Le principali caratteristiche di MUI sono:
     \end{itemize}
     MUI è ampiamente utilizzata nella comunità di sviluppatori React per creare interfacce utente moderne e attraenti. Grazie alla sua flessibilità, personalizzazione e conformità con il design Material UI, MUI semplifica la creazione di applicazioni web di alta qualità e dall'aspetto professionale.
 \subsubsection{Tus.js}
-Tus.js è una libreria JavaScript open-source che implementa il protocollo TUS (Tus Upload Protocol) per la gestione di upload di file resumabili su server, semplifica l'implementazione del protocollo TUS nel browser, fornendo una API per la gestione dell'upload dei file e la comunicazione con il server che supporta il protocollo TUS.
+Tus.js è una libreria JavaScript open-source che implementa il protocollo TUS (Tus Upload Protocol) per la gestione di upload di file resumabili su server, semplifica l'implementazione del protocollo TUS nel browser, fornendo una API per la gestione dell'upload dei file e la comunicazione con il server che supporta il protocollo TUS.~\footnote{\url{https://github.com/tus/tus-js-client/}}
 Le principali caratteristiche di Tus.js sono:
 \begin{itemize}
     \item \textbf{Gestione dell'upload resumabile}: Tus.js implementa il protocollo TUS, che consente di interrompere e riprendere l'upload dei file da dove si è interrotto, senza dover ricominciare da capo. Ciò rende l'upload di file di grandi dimensioni affidabile e consente agli utenti di riprendere l'upload da dove si sono interrotti.
@@ -222,7 +223,7 @@ L'utilizzo di Azure Media Service offre vari vantaggi rispetto a un'infrastruttu
 \subsubsection{Azure App Sevice}
 Azure App Service è un servizio di cloud computing offerto da Microsoft Azure che consente agli sviluppatori di creare, distribuire e gestire applicazioni web e mobili in modo rapido e scalabile. Azure App Service fornisce un ambiente di esecuzione completamente gestito per le applicazioni, eliminando la necessità di gestire l'infrastruttura sottostante.
 \subsubsection{Azure SQL Server}
-Azure SQL Server è un servizio di database relazionale completamente gestito che offre funzionalità di database SQL.
+Azure SQL Server è un servizio di database relazionale completamente gestito che offre funzionalità di database SQL.~\footnote{\url{https://azure.microsoft.com/it-it/products/azure-sql/database/}}
 Offre una serie di vantaggi rispetto a un Server SQL tradizionale, come la facilità di gestione, la scalabilità e sicurezza.\\
 Il database non deve essere gestito in quanto Azure si occupa della gestione dell'infrastruttura, aggiornamenti delle patch di sicurezza e delle operazioni di manutenzione del server, consentendo agli sviluppatori di concentrarsi sulla logica di business e sull'applicazione dati.\\
 Inoltre permette di scalare sia orizzontalmente che verticalmente il database, in maniera automatica, in modo tale da adattarsi alle esigenze dell'applicazione.\\
@@ -230,6 +231,6 @@ Un altro vantaggio è la sicurezza, in quanto integra funzionalità di sicurezza
 È stato utilizzato per la gestione dei dati dell'applicazione, integrandosi con il backend dell'applicazione attraverso il context contenuto nel layer Data.\\
 \subsection{Strumenti utilizzati}
 \subsubsection{Visual Studio}
-Visual Studio è un IDE (Integrated Development Environment) sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.
+Visual Studio è un IDE (Integrated Development Environment) sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.~\footnote{\url{https://visualstudio.microsoft.com/it/}}
 \subsubsection{Visual Studio Code}
-Visual Studio Code è un editor di codice sorgente sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.
+Visual Studio Code è un editor di codice sorgente sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.~\footnote{\url{https://code.visualstudio.com/}}

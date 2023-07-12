@@ -11,13 +11,13 @@ Il backend è stato sviluppato utilizzando il linguaggio di programmazione C\tex
 Come ambiente di sviluppo è stato utilizzato Visual Studio 2022.\\
 \subsection{Architettura a layer}
 L'architettura a layer è una tipologia di architettura software che prevede la suddivisione del codice in diversi livelli, ognuno dei quali ha un compito ben preciso, e che comunica con gli altri livelli attraverso interfacce. Questo permette di avere un codice più modulare e mantenibile, in quanto ogni livello ha un compito ben preciso e non si occupa di altro.\\
-Il backend è composto da un unico progetto "AdMaioraStreamingPOC", che contiene i vari layer suddivisi in cartelle, ognuna delle quali contiene le soluzioni relative al layer. I layer sono: API, Core e Data.\\
+Il backend è composto da un unico progetto "AdMaioraStreamingPoC", che contiene i vari layer suddivisi in cartelle, ognuna delle quali contiene le soluzioni relative al layer. I layer sono: API, Core e Data.\\
 
 \subsubsection{API}
 Il layer API è il livello più esterno dell'applicazione, si occupa di gestire le richieste HTTP in arrivo dal frontend. È divisa in due soluzioni: Controller e DTO.\\
 \begin{itemize}
     \item \textbf{Controllers}: sono le classi che si occupano di gestire le richieste HTTP in arrivo dal frontend, utilizzano il framework ASP.NET Core e la libreria AutoMapper per la conversione dei DTO in entità e viceversa; inoltre, utilizzano la dependency injection per iniettare le dipendenze necessarie dalle classi di Service presenti nel layer Core, l'uso di questa tecnica rende i controller indipendenti dalle implementazioni concrete delle dipendenze.\\
-    Per ogni entità del database è stato creato un controller, che contiene metodi CRUD e non, per gestire le richieste HTTP in modo completo. Quando un controller riceve una richiesta HTTP, utilizza i metodi presenti nel Service per gestire la richiesta, e restituisce al frontend il risultato della richiesta in formato JSON.\\
+    Per ogni entità del database è stato creato un controller, che contiene metodi di  create, read, update, delete( RUD) e non, per gestire le richieste HTTP in modo completo. Quando un controller riceve una richiesta HTTP, utilizza i metodi presenti nel Service per gestire la richiesta, e restituisce al frontend il risultato della richiesta in formato JSON.\\
     \item \textbf{DTO}: sono classi che contengono la struttura dei dati che vengono scambiati tra il frontend e il backend.
     Per ogni entità del database sono stati creati tre DTO: uno per la creazione, uno per l'aggiornamento e uno per la visualizzazione; così facendo, si evita di scambiare dati inutili tra frontend e backend, e si evita di dover gestire la serializzazione e deserializzazione di dati inutili. Inoltre, utilizzando i DTO, si evita di dover esporre le entità del database al frontend, favorendo la separazione tra frontend e backend.\\
 \end{itemize}
@@ -95,7 +95,7 @@ In figura \ref{fig:video} è rappresentano un esempio di visualizzazione di un v
 \end{figure}
 \subsubsection{Pagina Gestione}
 Le pagine di gestione sono tre, una per gli eventi, una per i video e una per gli utenti. Ogni pagina contiene una tabella con tutti gli elementi, ogni riga contiene due pulsanti, uno per modificare l'elemento e uno per eliminarlo. Inoltre è presente anche un pulsante per aggiungere un nuovo elemento attraverso un dialog.\\
-In figura \ref{fig:gestionevideo} è rappresentana la pagina della tabella per la gestione dei video.
+In figura \ref{fig:gestionevideo} è rappresentata la pagina della tabella per la gestione dei video.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/interface/videotable.png}
