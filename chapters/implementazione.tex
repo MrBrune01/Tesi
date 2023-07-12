@@ -17,7 +17,7 @@ Il backend è composto da un unico progetto "AdMaioraStreamingPoC", che contiene
 Il layer API è il livello più esterno dell'applicazione, si occupa di gestire le richieste HTTP in arrivo dal frontend. È divisa in due soluzioni: Controller e DTO.\\
 \begin{itemize}
     \item \textbf{Controllers}: sono le classi che si occupano di gestire le richieste HTTP in arrivo dal frontend, utilizzano il framework ASP.NET Core e la libreria AutoMapper per la conversione dei DTO in entità e viceversa; inoltre, utilizzano la dependency injection per iniettare le dipendenze necessarie dalle classi di Service presenti nel layer Core, l'uso di questa tecnica rende i controller indipendenti dalle implementazioni concrete delle dipendenze.\\
-    Per ogni entità del database è stato creato un controller, che contiene metodi di  create, read, update, delete( RUD) e non, per gestire le richieste HTTP in modo completo. Quando un controller riceve una richiesta HTTP, utilizza i metodi presenti nel Service per gestire la richiesta, e restituisce al frontend il risultato della richiesta in formato JSON.\\
+    Per ogni entità del database è stato creato un controller, che contiene metodi di \gls{CRUD} e non, per gestire le richieste HTTP in modo completo. Quando un controller riceve una richiesta HTTP, utilizza i metodi presenti nel Service per gestire la richiesta, e restituisce al frontend il risultato della richiesta in formato \gls{JSON}.\\
     \item \textbf{DTO}: sono classi che contengono la struttura dei dati che vengono scambiati tra il frontend e il backend.
     Per ogni entità del database sono stati creati tre DTO: uno per la creazione, uno per l'aggiornamento e uno per la visualizzazione; così facendo, si evita di scambiare dati inutili tra frontend e backend, e si evita di dover gestire la serializzazione e deserializzazione di dati inutili. Inoltre, utilizzando i DTO, si evita di dover esporre le entità del database al frontend, favorendo la separazione tra frontend e backend.\\
 \end{itemize}
@@ -68,13 +68,13 @@ La cartella Context, contiene i file di contesto, è composta da tre file: Fetch
 \subsection{Interfaccia grafica}
 \subsubsection{Pagina Home}
 La pagina Home è la pagina principale dell'applicazione, contiene una grid di tutti gli eventi disponibili, e un menù laterale che permette la navigazione tra le pagine.\\
-In figura \ref{fig:home} è rappresentano un esempio della pagina home sviluppata.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/interface/home.png}
     \caption{Pagina Home}
     \label{fig:home}
 \end{figure}
+In figura \ref{fig:home} è rappresentano un esempio della pagina home sviluppata.
 \subsubsection{Pagina Eventi}
 Quando si clicca su un evento nella pagina Home, si viene reindirizzati alla pagina dell'evento, che contiene una grid con tutti i video dell'evento.\\
 In figura \ref{fig:eventi} è rappresentano un esempio della pagina di un evento inserito nel sistema.
