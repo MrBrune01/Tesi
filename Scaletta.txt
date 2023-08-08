@@ -1,0 +1,57 @@
+\section{Dettagli sull'implementazione del frontend}Introduzione
+    Contestualizzazione del problema
+    Presentazione dell'azienda e del contesto dello stage
+    Obiettivi della tesi
+    Struttura della tesi
+
+Fondamenti teorici
+    Concetti di video on demand e streaming
+    Tecnologie utilizzate (React, C#, Azure Media Service)
+    Panoramica dell'architettura della webapp
+    Descrizione delle principali funzionalità della webapp
+
+Analisi dei requisiti
+    Descrizione delle esigenze dell'azienda
+    Individuazione e specifica dei requisiti funzionali e non funzionali
+    Documentazione dei casi d'uso
+
+Progettazione
+    Descrizione dell'architettura del sistema
+    Progettazione del frontend con React
+    Progettazione del backend con C#
+    Integrazione con Azure Media Service per lo streaming e lo storage dei video
+
+Implementazione
+    Descrizione delle principali scelte implementative
+    Dettagli sull'implementazione del frontend con React
+    Dettagli sull'implementazione del backend con C#
+    Configurazione e utilizzo di Azure Media Service
+
+Testing e validazione
+    Descrizione delle attività di testing
+    Verifica dei requisiti
+    Analisi dei risultati dei test
+    Valutazione delle prestazioni della webapp
+
+Risultati e discussione
+    Presentazione dei risultati ottenuti
+    Discussione dei risultati rispetto agli obiettivi prefissati
+    Considerazioni sull'efficacia della soluzione proposta
+    Possibili miglioramenti e sviluppi futuri
+
+Conclusioni
+    Riassunto dei risultati ottenuti
+    Valutazione complessiva del progetto
+    Contributi originali della tesi
+    Limitazioni e possibili estensioni future
+
+Bibliografia
+
+Elenco delle fonti utilizzate per lo studio teorico e la ricerca
+
+Appendici
+
+Codice sorgente rilevante
+Schermate e diagrammi aggiuntivi
+
+Ulteriori dettagli implementativi

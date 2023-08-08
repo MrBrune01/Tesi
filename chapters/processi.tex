@@ -1,0 +1,317 @@
+\chapter{Descrizione dello stage}
+\label{cap:analisi-requisiti}
+\intro{In questo capitolo verrà descritto lo stage, gli obiettivi, la pianificazione e i risultati attesi.}\\
+\section{Descrizione dello stage}
+\label{sec:descrizione-stage}
+La WebApp realizzata è un'applicazione che permette agli utenti di guardare in streaming i video caricati nella piattaforma dai vari espositori presenti nelle fiere mondiali, e permette di scegliere la qualità del video.\\
+Doveva rendere possibile agli espositori caricare i video relativi ai propri prodotti e associarli ad un evento nel quale sono presenti, permettendone la modifica e l'eliminazione.\\
+Inoltre deve permettere agli amministratori gestire gli utenti, gli eventi e i video caricati all'interno della piattaforma.\\
+
+\section{Organizzazione dello stage}
+\label{sec:organizzazione-stage}
+Lo stage è stato suddiviso in 4 fasi:
+\begin{enumerate}
+    \item \textbf{Formazione} \\
+    Studio delle tecnologie e dei metodi di sviluppo utilizzati dall'azienda.
+    \item \textbf{Analisi} \\
+    Analisi delle tecnologie e dei servizi offerti da Azure per la realizzazione del PoC.
+    \item \textbf{Sviluppo} \\
+    Sviluppo del PoC e delle sue componenti.
+    \item \textbf{Collaudo e testing} \\
+    Collaudo del PoC, realizzazione di Unit Test del backend e stesura della documentazione finale.
+\end{enumerate}
+
+\subsection{Formazione}
+\label{subsec:formazione}
+La fase di formazione ha avuto una durata di due settimane e ha avuto come obiettivo lo studio delle tecnologie e dei metodi di sviluppo utilizzati dall'azienda.\\
+In particolare si è studiato il framework .NET Core, il framework React, il linguaggio di programmazione Javascript e i servizi di Azure utilizzando delle WebApp precedentemente realizzate dall'azienda come esempio.\\
+
+\subsection{Analisi}
+\label{subsec:analisi}
+La fase di analisi ha avuto una durata di una settimana e ha avuto come obiettivo l'analisi delle tecnologie e dei servizi disponibili per la realizzazione del PoC.\\
+In particolare si è studiato il funzionamento e i vantaggi dell'utilizzo del servizio Azure Media Services e il servizio Azure App Service.\\
+
+\subsection{Sviluppo}
+\label{subsec:sviluppo}
+La fase di sviluppo ha avuto una durata di 3 settimane e ha avuto come obiettivo lo sviluppo del PoC e delle sue componenti.\\
+
+\subsection{Collaudo}
+\label{subsec:collaudo}
+La fase di collaudo ha avuto una durata di 2 settimane e ha avuto come obiettivo il collaudo del PoC, la realizzazione di Unit Test per il backend e la stesura della documentazione.\\
+\section{Vincoli}
+\label{sec:vincoli}
+\subsection{Vincoli temporali}
+\label{subsec:vincoli-temporali}
+Il periodo di stage è stato fissato dal 03/05/2023 al 28/06/2023, per un totale di 300 ore.\\
+\subsection{Vincoli tecnologici}
+\label{subsec:vincoli-tecnologici}
+La WebApp deve essere realizzata utilizzando i servizi di Azure, in particolare l'utilizzo del servizio Azure Media Services per la gestione dei video e il servizio Azure App Service per la distribuzione del backend e del frontend.\\
+Il backend deve essere realizzato utilizzando il framework .NET Core e il frontend è obbligatorio utilizzare il framework React.\\
+\subsection{Vincoli metodologici}
+\label{subsec:vincoli-metodologici}
+Il lavoro è stato organizzato utilizzando il servizio di Azure DevOps, che permette di gestire il progetto, le sue attività e il versionamento del codice.\\
+\section{Casi d'uso}
+\label{sec:casi-duso}
+\subsection{Attori}
+\label{subsec:attori}
+Gli attori che interagiscono con la WebApp sono:
+\begin{itemize}
+    \item \textbf{Visitatore}: è un utente che può visualizzare i video e gli eventi presenti nella piattaforma.
+    \item \textbf{Espositore}: è un utente che può visualizzare i video caricati nella piattaforma e può caricare i video relativi ai propri prodotti.
+    \item \textbf{Amministratore}: è un utente che può visualizzare i video, può gestire gli utenti, gli eventi e i video caricati nella piattaforma.
+\end{itemize}
+\subsection{Casi d'uso}
+\label{subsec:casi-duso}
+Vengono elencati i casi d'uso:
+\subsubsection{UC1: Visualizza video}
+\label{subsubsec:uc1}
+\begin{itemize}
+    \item \textbf{Attori}: Visitatore, Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore visualizza un video caricato nella piattaforma
+    \item \textbf{Precondizione}: L'attore deve aver selezionato un video
+    \item \textbf{Postcondizione}: L'attore visualizza un video caricato nella piattaforma
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item Il sistema mostra il video in streaming
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC2: Modifica qualità video}
+\label{subsubsec:uc2}
+\begin{itemize}
+    \item \textbf{Attori}: Visitatore, Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore modifica la qualità del video
+    \item \textbf{Precondizione}: L'attore deve aver avviato la riproduzione di un video
+    \item \textbf{Postcondizione}: L'attore ha modificato la qualità del video
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore seleziona la qualità del video
+        \item Il sistema modifica la qualità del video
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC3: Controlla stato video}
+\label{subsubsec:uc3}
+\begin{itemize}
+    \item \textbf{Attori}: Visitatore, Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore controlla lo stato del video
+    \item \textbf{Precondizione}: L'attore deve aver avviato la riproduzione di un video
+    \item \textbf{Postcondizione}: L'attore ha controllato lo stato del video
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore controlla lo stato del video
+        \item Il sistema modifica lo stato del video
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC4: Visualizzazione eventi}
+\label{subsubsec:uc4}
+\begin{itemize}
+    \item \textbf{Attori}: Visitatore, Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore visualizza gli eventi
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp
+    \item \textbf{Postcondizione}: L'attore visualizza gli eventi
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item Il sistema mostra gli eventi
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC5: Visualizzazione video evento}
+\label{subsubsec:uc5}
+\begin{itemize}
+    \item \textbf{Attori}: Visitatore, Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore visualizza i video relativi ad un evento
+    \item \textbf{Precondizione}: L'attore deve aver selezionato un evento
+    \item \textbf{Postcondizione}: L'attore visualizza i video relativi ad un evento
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item Il sistema mostra i video relativi ad un evento
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC6: Aggiungi evento}
+\label{subsubsec:uc6}
+\begin{itemize}
+    \item \textbf{Attori}: Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore aggiunge un evento
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp
+    \item \textbf{Postcondizione}: L'attore ha aggiunto un evento
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore inserisce i dati dell'evento
+        \item L'attore preme il pulsante di aggiunta
+        \item Il sistema aggiunge l'evento
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC7: Aggiungi utente}
+\label{subsubsec:uc7}
+\begin{itemize}
+    \item \textbf{Attori}: Amministratore
+    \item \textbf{Descrizione}: L'attore aggiunge un utente
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp
+    \item \textbf{Postcondizione}: L'attore ha aggiunto un utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore inserisce i dati dell'utente
+        \item L'attore preme il pulsante di aggiunta
+        \item Il sistema aggiunge l'utente
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC8: Aggiungi video}
+\label{subsubsec:uc8}
+\begin{itemize}
+    \item \textbf{Attori}: Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore aggiunge un video
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp
+    \item \textbf{Postcondizione}: L'attore ha aggiunto un video
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore inserisce i dati del video
+        \item L'attore preme il pulsante di aggiunta
+        \item Il sistema aggiunge il video
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC9: Modifica evento}
+\label{subsubsec:uc9}
+\begin{itemize}
+    \item \textbf{Attori}: Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore modifica un evento
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp e deve aver aggiunto un evento
+\item \textbf{Postcondizione}: L'attore ha modificato un evento
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore modifica i dati dell'evento
+        \item L'attore preme il pulsante di modifica
+        \item Il sistema modifica l'evento
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC10: Modifica utente}
+\label{subsubsec:uc10}
+\begin{itemize}
+    \item \textbf{Attori}: Amministratore
+    \item \textbf{Descrizione}: L'attore modifica un utente
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp e deve aver aggiunto un utente
+    \item \textbf{Postcondizione}: L'attore ha modificato un utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore modifica i dati dell'utente
+        \item L'attore preme il pulsante di modifica
+        \item Il sistema modifica l'utente
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC11: Modifica video}
+\label{subsubsec:uc11}
+\begin{itemize}
+    \item \textbf{Attori}: Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore modifica un video
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp e deve aver aggiunto un video
+    \item \textbf{Postcondizione}: L'attore ha modificato un video
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore modifica i dati del video
+        \item L'attore preme il pulsante di modifica
+        \item Il sistema modifica il video
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC12: Elimina evento}
+\label{subsubsec:uc12}
+\begin{itemize}
+    \item \textbf{Attori}: Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore elimina un evento
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp e deve aver aggiunto un evento
+    \item \textbf{Postcondizione}: L'attore ha eliminato un evento
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore preme il pulsante di eliminazione
+        \item Il sistema elimina l'evento
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC13: Elimina utente}
+\label{subsubsec:uc13}
+\begin{itemize}
+    \item \textbf{Attori}: Amministratore
+    \item \textbf{Descrizione}: L'attore elimina un utente
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp e deve aver aggiunto un utente
+    \item \textbf{Postcondizione}: L'attore ha eliminato un utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore preme il pulsante di eliminazione
+        \item Il sistema elimina l'utente
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC14: Elimina video}
+\label{subsubsec:uc14}
+\begin{itemize}
+    \item \textbf{Attori}: Espositore, Amministratore
+    \item \textbf{Descrizione}: L'attore elimina un video
+    \item \textbf{Precondizione}: L'attore deve aver aperto la WebApp e deve aver aggiunto un video
+    \item \textbf{Postcondizione}: L'attore ha eliminato un video
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'attore preme il pulsante di eliminazione
+        \item Il sistema elimina il video
+    \end{enumerate}
+\end{itemize}
+
+\section{Requisiti}
+\label{sec:requisiti}
+\subsection{Requisiti funzionali}
+\label{subsec:requisiti-funzionali}
+Vengono elencati i requisiti funzionali:
+\begin{itemize}
+    \item \textbf{RF1} L'utente deve poter visualizzare gli eventi presenti nella piattaforma;
+    \item \textbf{RF2} L'utente deve poter visualizzare i video relativi ad un evento;
+    \item \textbf{RF3} L'utente deve poter visualizzare un video in streaming;
+    \item \textbf{RF4} L'utente deve poter modificare la qualità del video che sta guardando;
+    \item \textbf{RF5} L'utente deve poter controllare lo stato del video che sta guardando;
+    \item \textbf{RF6} L'utente deve poter aggiungere un evento;
+    \item \textbf{RF7} L'utente deve poter aggiungere un utente;
+    \item \textbf{RF8} L'utente deve poter aggiungere un video ad un evento;
+    \item \textbf{RF9} L'utente deve poter modificare i dati di un evento;
+    \item \textbf{RF10} L'utente deve poter modificare i dati relativi ad un utente;
+    \item \textbf{RF11} L'utente deve poter modificare i dati relativi ad un video;
+    \item \textbf{RF12} L'utente deve poter eliminare un evento;
+    \item \textbf{RF13} L'utente deve poter eliminare un utente;
+    \item \textbf{RF14} L'utente deve poter eliminare un video.
+\end{itemize}
+\subsection{Requisiti non funzionali}
+\label{subsec:requisiti-non-funzionali}
+Vengono elencati i requisiti non funzionali:
+\begin{itemize}
+    \item \textbf{RNF1} L'utente deve poter utilizzare la WebApp senza problemi di usabilità;
+    \item \textbf{RNF2} L'utente deve poter utilizzare la WebApp senza problemi di performance;
+    \item \textbf{RNF3} L'utente deve poter utilizzare la WebApp senza problemi di scalabilità;
+    \item \textbf{RNF4} L'utente deve poter utilizzare la WebApp senza problemi di manutenibilità;
+    \item \textbf{RNF5} L'utente deve poter utilizzare la WebApp senza problemi di sicurezza.
+\end{itemize}
+\section{Obiettivi}
+\label{sec:obiettivi}
+Gli obiettivi che si volevano raggiungere erano:
+\begin{itemize}
+    \item \textbf{O1} Realizzazione di un PoC dia agli utenti la possibilità di guardare in streaming i video caricati nella piattaforma dai vari espositori presenti nelle fiere mondiali, che permetta di poter scegliere la qualità del video;
+    \item \textbf{O2} Realizzazione di un PoC che permetta agli espositori di poter caricare i video relativi ai propri prodotti e di poterli associare ad un evento nella quale sono presenti, permettendone la modifica e l'eliminazione;
+    \item \textbf{O3} Realizzazione di un PoC che permetta agli amministratori di gestire gli utenti, gli eventi e i video caricati nella piattaforma.
+    \item \textbf{O4} Realizzazione di Unit Test per il backend.
+    \item \textbf{O5} Realizzazione di un analisi dei costi per il mantenimento della WebApp in funzione del numero di utenti utilizzatori.
+    \item \textbf{O6} Stesura della documentazione.
+\end{itemize}
+\section{Risultati attesi}
+\label{sec:risultati-attesi}
+I risultati attesi sono:
+\begin{itemize}
+    \item \textbf{R1} Realizzazione di un PoC che permetta la gestione di eventi, utenti e video, e permetta la visualizzazione di quest'ultimi in streaming;
+    \item \textbf{R2} Realizzazione di Unit Test per il backend;
+    \item \textbf{R3} Realizzazione di un analisi dei costi per il mantenimento della WebApp in produzione in base al numero di utenti utilizzatori;
+    \item \textbf{R4} Realizzazione degli Unit Test per il backend;
+    \item \textbf{R5} Stesura della documentazione.
+\end{itemize}
+

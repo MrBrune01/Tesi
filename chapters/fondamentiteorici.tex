@@ -1,0 +1,236 @@
+\chapter{Fondamenti teorici e tecnologie utilizzate}
+\label{cap:fondamentiteorici}
+\intro{In questo capitolo verranno descritti i fondamenti teorici necessari per la comprensione del lavoro svolto.}\\
+
+\section{Concetti di video on-demand e streaming}
+VOD è un sistema che permette di accedere a contenuti multimediali (video, audio, immagini) 
+in qualsiasi momento e in qualsiasi luogo tramite una connessione internet.
+Contrariamente alla trasmissione televisiva tradizionale, nella quale gli utenti sono limitati da un palinsesto predefinito, 
+il VOD dà la possibilità agli utenti di scegliere quale contenuto guardare e quando usufruirne.\\
+Nel contesto della webapp sviluppata, questo concetto ha una funzione chiave, infatti consente agli utenti di accedere a una vasta gamma di selezione video riguardanti 
+i prodotti esposti nelle fiere mondiali, 
+permettendo di scegliere i video di loro interesse in base alle loro preferenze e necessità, eliminando le limitazioni spazio-temporali delle fiere fisiche.\\
+Nel corso della tesi, verranno analizzate le caratteristiche e le sfide associate all'implementazione del video on-demand nella webapp, quindi le strategie 
+di gestione e organizzazione dei contenuti, nonché la scalabilità e la qualità dello streaming per garantire un'esperienza fluida e coinvolgente per gli utenti.
+\subsection{Tipologie di video on-demand}
+Esistono diverse tipologie di video on-demand, sotto elencate:
+
+\begin{itemize}
+    \item \textbf{Subscription VOD} ovvero i servizi con un canone periodico come ad esempio Netflix, Amazon Prime Video ecc..\\
+    \item \textbf{Transactional VOD} ossia servizi che permettono di acquistare o noleggiare contenuti, come ad esempio Google Play, Apple TV, Chili ecc..\\
+    \item \textbf{Advertising VOD} ossia servizi gratuiti che mostrano annunci pubblicitari durante la riproduzione dei contenuti, come ad esempio Youtube, RaiPlay e Mediaset Play\\
+    \item \textbf{Premium VOD} ovvero la trasmissione di contenuti Premium, come anteprime cinematografiche, eventi sportivi ecc.., proposti da piattaforme come ad esempio Curzon Cinemas\\
+\end{itemize}
+
+\subsection{Concetti di streaming video}
+Lo streaming video è un metodo di trasmissione di dati multimediali, in particolare di video e audio.
+Esistono due principali categorie di streaming video:\\
+\begin{itemize}
+    \item \textbf{Video on-demand} è la trasmissione di contenuti pre-registrati, come ad esempio film, serie TV, documentari ecc.., i quali vengono compressi e memorizzati su un server come file,
+    e vengono trasmessi agli utenti che ne fanno richiesta senza la necessità che il contenuto venga scaricato sul dispositivo dell'utente. Infatti i dati ricevuti dalla richiesta vengono decompressi e riprodotti in tempo reale.
+    \item \textbf{Live streaming} è simile alle trasmissioni televisive tradizionali, in cui gli utenti guardano i contenuti in tempo reale. Viene utilizzato per trasmettere eventi in 
+    diretta come ad esempio concerti, eventi sportivi ecc.., vengono anch'essi leggermente compressi e memorizzati su un server, ma vengono trasmessi in tempo reale agli utenti che ne fanno richiesta.
+    \end{itemize}
+\subsection{Protocolli e tecnologie di streaming video}
+Per la trasmissione di contenuti multimediali, esistono diversi protocolli e tecnologie, sotto elencati:
+
+\begin{itemize}
+
+    \item \textbf {\gls{HLS}} \footcite{rfc8216} è un protocollo di streaming sviluppato da Apple nel 2009. Permette la trasmissione in streaming di contenuti multimediali frammentando il contenuto in segmenti di file \gls{HTTP} e distribuendolo ai dispositivi client utilizzando il medesimo protocollo.\\
+    HLS è adattivo: il client può cambiare la qualità del video in base alla larghezza di banda disponibile senza interrompere la riproduzione.
+    È nativamente compatibile con i dispositivi Apple ma è supportato anche dalla maggior parte dei dispositivi e browser che supportano HTTP, non richiedendo l'installazione di plugin aggiuntivi.\\
+
+    \item \textbf {\gls{DASH}} \footcite{sodagar2011mpeg} è un protocollo di streaming sviluppato dal \gls{MPEG}, permette la trasmissione di contenuti multimediali
+    attraverso il protocollo HTTP.\\
+    DASH suddivide il contenuto in segmenti e li trasmette ai dispositivi client tramite HTTP, permettendo un adattamento dinamico della qualità del video in base alla larghezza di banda disponibile.
+    Offre una vasta gamma di scelta del formato video e codec, permettendo di scegliere il formato più adatto per il dispositivo client.\\
+
+    \item \textbf {\gls{RTMP}} \footcite{aloman2015performance} è un protocollo di streaming sviluppato da Adobe nel 2012, permette la trasmissione di contenuti multimediali in tempo reale,
+    divide il contenuto in pacchetti e li trasmette ai dispositivi client tramite \gls{TCP} o \gls{UDP}, consente una comunicazione bidirezionale tra il server e il dispositivo client utilizzando un flusso continuo.\\
+    RTMP è un protocollo di streaming non adattivo, ovvero non permette di cambiare la qualità del video in base alla larghezza di banda disponibile, ma permette di 
+    trasmettere contenuti in tempo reale con una bassa latenza.\\
+    Dal 2020, con la deprecazione di Adobe Flash Player, RTMP è stato sostituito da protocolli di streaming adattivi come HLS e DASH.\\
+    \end{itemize}
+
+\section{I problemi dello streaming}
+\subsection{Latenza}
+La latenza è il tempo di ritardo tra l'invio di un pacchetto e la ricezione di una risposta, è un problema comune nello streaming, in quanto può causare ritardi nella riproduzione del video.
+Può essere causata da diversi fattori, come ad esempio la velocità delle connessione, la distanza tra il server e il dispositivo client, la compressione del video e la capacità di elaborazione del dispositivo client.
+Per ridurre la latenza si utilizzano protocolli efficienti in base alla tipologia del contenuto.\\
+\pagebreak
+\subsection{Qualità del video}
+Un aspetto importante dello streaming video è la qualità del video, essa dipende da diversi fattori, i due principali sono la compressione e la codifica del video.\\
+
+\begin{itemize}
+    \item \textbf{La compressione} è un processo che riduce la dimensione del file video, rimuovendo le informazioni ridondanti o non necessarie, permettendo una trasmissione più rapida ed efficiente del video.
+Può essere di due tipi: lossless e lossy.\\
+La compressione lossless è un processo che riduce la dimensione del file video senza perdita di qualità, mentre la compressione lossy è un processo che riduce
+la dimensione del file video con una leggera perdita di qualità.\\ 
+\item \textbf{La codifica} \footcite{1369697} è un processo che converte il video da un formato a un altro formato, consentendo la trasmissione e riproduzione dei video su diversi dispositivi e piattaforme.
+Esistono diversi formati video, i più comuni sono: H.264, H.265, VP9 e AV1.\\
+
+\end{itemize}
+
+
+\subsection{Sicurezza}
+La sicurezza è un aspetto importante dello streaming video, in quanto i contenuti multimediali possono essere facilmente copiati e distribuiti senza autorizzazione.
+Per proteggerlo esistono diversi metodi, i più comuni sono: \gls{DRM} e Watermarking.\\
+Il DRM è un metodo di protezione da copie non autorizzate, impostando una chiave di protezione, che viene utilizzata per decodificare i contenuti multimediali.\\
+Il Watermarking è un altro metodo di protezione che permette di proteggere i contenuti con un watermark, ovvero un segno distintivo (come ad esempio un logo), 
+che viene utilizzato per identificare il proprietario.\\
+
+\subsection{Gestione del carico del server}
+I server di streaming possono ricevere un elevato numero di richieste da tutto il mondo, questo può causare dei problemi di distribuzione del contenuto 
+alle richieste più distanti geograficamente dal server, in quanto i pacchetti impiegano più tempo a raggiungere il dispositivo client e quindi causano ritardi nella riproduzione del video.\\
+Inoltre per eventi particolarmente popolari come ad esempio eventi sportivi, il numero di richieste può aumentare notevolmente, causando un sovraccarico del server e quindi ritardi nella riproduzione
+del video, in quanto la banda disponibile è limitata e viene distribuita tra tutti i dispositivi client.\\
+Per risolvere questi problemi si utilizzano dei servizi di \gls{CDN}, ovvero una rete di server presenti in tutto il mondo, che permette di distribuire i contenuti multimediali
+ai dispositivi client più vicini geograficamente, riducendo la latenza e il carico dei vari server.\footcite{peng2004cdn}\\
+Mentre per la gestione del carico del server, si utilizzano dei servizi di Load Balancing, ovvero dei servizi di bilanciamento di carico, come il \gls{NLB} o il 
+\gls{ALB}, che permettono di distribuire il traffico più efficientemente tra i server, riducendone il carico.\\
+Inoltre per gestire i picchi di richieste, si utilizzano infrastrutture server scalabili basate su cloud, come ad esempio Azure Media Services di Microsoft, che permette di scalare automaticamente le risorse 
+in base alle esigenze del traffico di richieste, mantenendo il servizio sempre disponibile e riducendo i costi di gestione.\\
+
+\section{Tecnologie utilizzate}
+Per la realizzazione sono state utilizzate le seguenti tecnologie, divise in due categorie: tecnologie lato backend e tecnologie lato frontend.\\
+
+\subsection{Tecnologie backend}
+\subsubsection{C\texttt{\#}}
+C\texttt{\#} è un linguaggio di programmazione orientato agli oggetti, sviluppato da Microsoft nel 2000, è un linguaggio di programmazione multiparadigma: supporta i paradigmi di programmazione procedurale, funzionale, generica, orientata agli oggetti e asincrona.
+È un linguaggio di programmazione fortemente tipizzato, in quanto ogni variabile deve essere dichiarata con un tipo specifico, e supporta la programmazione generica, in quanto permette di creare classi e metodi generici, che possono essere utilizzati con tipi diversi.\\
+È spesso utilizzato per lo sviluppo di applicazioni web, desktop e mobile, in quanto permette di creare applicazioni efficienti e affidabili.\\
+Ha un ampio supporto per il framework .NET, il quale offre una vasta gamma di librerie e strumenti per lo sviluppo di applicazioni backend e non solo, inoltre, il framework .NET include
+ASP.NET, un framework utilizzato per lo sviluppo di applicazioni web, che consente la creazione di \gls{API} \gls{RESTful}con facilità, grazie anche alla gestione avanzata delle richieste HTTP.\\
+\subsubsection{Entity Framework Core}
+Entity Framework Core è un \gls{ORM} open source, sviluppato da Microsoft, che permette di mappare le entità del database con le classi del codice, in modo tale da permettere agli sviluppatori di utilizzare le classi per interagire con il database, senza scrivere query SQL, offre una mappatura ORM che traduce in modo automatico le operazioni di lettura e scrittura degli oggetti nell'applicazione in istruzioni SQL eseguite sul database sottostante.~\footnote{\url{https://learn.microsoft.com/it-it/ef/core/}}\\
+Le principali caratteristiche di Entity Framework Core sono:
+\begin{itemize}
+\item \textbf{Mappatura delle entità}: consente di definire classi che rappresentano le tabelle del database e di specificare le relazioni tra di esse in modo automatico;
+\item \textbf{Querying}: permette di eseguire query sul database utilizzando \gls{LINQ}, un'estensione del linguaggio C\texttt{\#} che permette di scrivere query SQL in modo dichiarativo, ovvero scrivendo il risultato che si vuole ottenere e non come ottenerlo;
+\item \textbf{Migrazioni}: permette di creare delle migrazioni del database, ovvero consente di gestire le modifiche e l'aggiornamento automatico dello schema del database nel corso del tempo senza dover scrivere manualmente del codice SQL per ogni modifica;
+\item \textbf{Supporto per database multipli}: supporta una vasta gamma di database relazionali, inclusi SQL Server, MySQL, PostgreSQL, SQLite, ecc. permettendo di scrivere un unico codice che può funzionare con i diversi provider di database senza dover modificare il codice sorgente.
+\end{itemize}
+In conclusione, l'utilizzo del framework Entity Framework Core semplifica lo sviluppo di applicazione che utilizzano un database relazionale, in quanto permette di scrivere meno codice e di gestire in modo automatico le operazioni di lettura e scrittura sul database.\\
+\subsubsection{ASP.NET Core}
+ASP.NET Core è un framework open source, sviluppato da Microsoft, che permette di creare applicazioni web e API RESTful, utilizzando il linguaggio C\texttt{\#}. Le caratteristiche principali includono:
+\begin{itemize}
+\item \textbf{Cross-platform}: permette di creare applicazioni web e API RESTful che sono compatibili con Windows, Linux e macOS;
+\item \textbf{Modularità}: è basato su un'architettura modulare che consente di includere solo i componenti necessari per l'applicazione, offrendo un'ampia flessibilità e consentendo di ridurre le dimensioni della distribuzione dell'applicazione;
+\item \textbf{Performance}: grazie alla sua architettura leggera e ottimizzata, offre prestazioni elevate e scalabilità;
+\item \textbf{Supporto per i protocolli HTTP}: permette di creare API RESTful che supportano i protocolli HTTP, come ad esempio HTTP/2 e WebSockets consentendo una comunicazione bidirezionale tra client e server;
+\item \textbf{Estensibilità}: offre un'ampia gamma di estensioni e librerie di terze parti che permettono di aggiungere funzionalità personalizzate all'applicazione.
+\item \textbf{Middleware}: utilizza il concetto di middleware per gestire le richieste HTTP. I middleware possono essere utilizzati per eseguire operazioni comuni come l'autenticazione, l'autorizzazione, la memorizzazione nella cache e la registrazione delle richieste, semplificando lo sviluppo delle applicazioni web.
+\end{itemize}
+\subsubsection{Tusdotnet}
+Tusdotnet è una libreria open source per ASP.NET Core, che implementa il protocollo {TUS.io}~\footnote{\url{https://tus.io/}}, semplificando l'implementazione di esso fornendo un middleware che gestisce la logica di upload e il mantenimento di stato dell'upload. Grazie a esso è possibile gestire l'upload di file di grandi dimensioni in modo efficiente, in quanto permette di riprendere l'upload da dove si era interrotto, senza dover ricaricare l'intero file. Le principali caratteristiche di Tusdotnet sono:
+\begin{itemize}
+    \item \textbf{Resumable upload}: permette di riprendere l'upload di un file da dove si era interrotto, senza dover ricaricare l'intero file;
+    \item \textbf{Supporto per i file di grandi dimensioni}: permette di gestire l'upload di file di grandi dimensioni consentendo di superare i limiti imposti dalle API o dal server di hosting;
+    \item \textbf{Supporto per i metadata}: permette di aggiungere dei metadata ai file caricati, in modo tale da poterli utilizzare per aggiungere informazioni aggiuntive al file;
+    \item \textbf{Estensibilità}: offre un'architettura estensibile che permette di personalizzare ed estendere il comportamento dell'upload secondo le esigenze dell'applicazione. 
+\end{itemize}
+\subsubsection{Automapper}
+Automapper è una libreria open-source per .NET che semplifica la mappatura degli oggetti tra classi diverse. È progettato per ridurre il codice ripetitivo e la complessità associati alla mappatura degli oggetti, consentendo agli sviluppatori di gestire in modo efficiente la trasformazione dei dati da un tipo di oggetto a un altro.
+Le principali caratteristiche di Automapper sono:
+\begin{itemize}
+    \item \textbf{Mappatura convenzionale}: Automapper supporta la mappatura convenzionale degli oggetti, il che significa che può associare automaticamente le proprietà degli oggetti sorgente alle proprietà corrispondenti degli oggetti di destinazione, a meno che non sia specificato diversamente.
+  \item \textbf{Configurazione semplice}: offre un'API semplice e intuitiva per la configurazione delle mappe. È possibile definire le regole di mappatura utilizzando metodi fluenti o attributi personalizzati.
+  \item \textbf{Mappatura bidirezionale}: supporta la mappatura bidirezionale, consentendo di trasformare un oggetto sorgente in un oggetto di destinazione e viceversa. Ciò semplifica l'aggiornamento dei dati dell'oggetto di destinazione in base alle modifiche apportate all'oggetto sorgente.
+  \item \textbf{Supporto per relazioni complesse}: supporta la mappatura di relazioni complesse tra oggetti. È possibile gestire la mappatura di proprietà nidificate, collezioni di oggetti e relazioni uno-a-molti o molti-a-molti.
+\end{itemize}
+\subsection{Tecnologie frontend}
+\subsubsection{React}
+React è una libreria JavaScript per la creazione di interfacce utente. È stata sviluppata da Facebook e viene utilizzata per la creazione di \gls{UI} per applicazioni web e mobile. React è basato su sei principi di progettazione:
+\begin{itemize}
+\item \textbf{Componenti}: Le componenti sono elementi dell'interfaccia utente che possono essere riutilizzate in diverse parti dell'applicazione, una componente può essere una piccola porzione di pagina o un elemento complesso e autonomo, consentono di creare interfacce utente modulari e riutilizzabili, in modo tale da rendere il codice più semplice da scrivere, leggere e mantenere.\\
+\item \textbf{State}: Lo stato è un oggetto JavaScript che contiene i dati che vengono utilizzati dai componenti dell'applicazione, è immutabile, quindi non può essere modificato direttamente; per modificarlo, è necessario utilizzare il metodo \texttt{setState()} che viene fornito da React; quando lo stato viene modificato, viene aggiornato automaticamente il DOM.\\
+\item \textbf{DOM}:
+Il \gls{DOM} è una rappresentazione virtuale degli elementi della pagina, quando avvengono cambiamenti nello stato dell'applicazione, React aggiorna automaticamente il DOM in modo efficiente e successivamente aggiorna solo le parti della pagina che sono state modificate, così facendo React rende l'applicazione più veloce e reattiva senza dover ricaricare l'intera pagina.\\
+\item \textbf{Route}:
+Le route vengono utilizzate per gestire la navigazione e la visualizzazione delle diverse pagine dell'applicazione, consentono di definire le corrispondenze tra gli url specifici e i componenti che devono essere visualizzati quando viene richiesto un url specifico.
+Per gestire il routing, React utilizza una libreria esterna chiamata React Router, la quale fornisce diverse componenti che consentono di definire le route e di stabilire le corrispondenze tra gli url e i componenti.\\
+\item \textbf{Context}:
+Il Context è un meccanismo che consente di condividere dati specifici con tutti i componenti figli di un componente padre, evitando di dover passare manualmente le props attraverso i livelli intermedi, è composto da due parti: il Provider e il Consumer; il primo è responsabile di definire il contesto e di fornire i dati, mentre il secondo accede ai dati forniti dal Provider.\\
+\item \textbf{Props}:
+Le props (abbreviazione di proprietà) sono oggetti JavaScript immutabili che vengono utilizzati per passare dati da un componente padre a un componente figlio in modo unidirezionale.
+Il passaggio di dati tra la componente padre e la componente figlio avviene tramite gli attributi di quest'ultimo, mentre il passaggio di dati tra la componente figlio e la componente padre avviene tramite le funzioni callback.\\
+    \end{itemize}
+\subsubsection{React Player}
+React Player è una libreria open-source per React, fornisce un componente React che semplifica l'integrazione di player multimediali come video e audio nelle applicazioni React, permette di incorporare facilmente file multimediali da varie fonti, gestirne la riproduzione e controllare il comportamento del player.~\footnote{\url{https://github.com/cookpete/react-player/}}\\
+Le principali caratteristiche di React Player sono:
+\begin{itemize}
+    \item{Supporto per diversi formati video}: supporta una vasta gamma di formati video, tra cui MP4, WebM, HLS, DASH e YouTube;
+    \item{Controllo della riproduzione}: permette di controllare la riproduzione del video, consentendo di riprodurre, mettere in pausa, saltare avanti e indietro, regolare il volume e il tempo di riproduzione;
+    \item{Eventi di riproduzione}: permette di gestire gli eventi di riproduzione, consentendo di eseguire operazioni personalizzate quando avvengono determinati eventi, come ad esempio la riproduzione, la messa in pausa, il caricamento, l'errore ecc..;
+    \item{Personalizzazione}: permette di personalizzare il player, consentendo di aggiungere controlli personalizzati, di personalizzare l'aspetto del player e di aggiungere funzionalità personalizzate.
+    \item{Gestione del buffering}: permette di gestire il buffering del video, consentendo di visualizzare un indicatore di buffering personalizzato e di gestire gli eventi di buffering.
+\end{itemize}
+React Player semplifica notevolmente l'integrazione di file multimediali nelle applicazioni React, offrendo un'API semplice e intuitiva per il controllo della riproduzione. È una scelta popolare tra gli sviluppatori React per incorporare e gestire la riproduzione di video e audio in modo efficace e flessibile.\\
+\subsubsection{Hls.js}
+hls.js è una libreria JavaScript open-source che consente la riproduzione di file video utilizzando il protocollo di streaming HLS, è un protocollo di streaming sviluppato da Apple per la distribuzione di contenuti multimediali su Internet.~\footnote{\url{https://github.com/video-dev/hls.js}}\\
+hls.js è progettato per funzionare nel browser utilizzando la tecnologia \gls{HTML5} e JavaScript senza richiedere plugin aggiuntivi. Supporta il caricamento e la riproduzione di file video HLS in formato MPEG-\gls{TS}  suddivisi in segmenti, consentendo la riproduzione continua e adattiva dei contenuti video.\\
+
+Le principali caratteristiche di hls.js sono:
+\begin{itemize}
+    \item \textbf{Riproduzione HLS}: consente di riprodurre file video HLS direttamente nel browser utilizzando la tecnologia HTML5 e JavaScript, senza dipendere da plugin o tecnologie aggiuntive.
+    \item \textbf{Riproduzione adattiva}: supporta lo streaming adattivo, che consente al lettore di selezionare automaticamente il giusto bitrate in base alla connessione di rete e alle capacità del dispositivo. Ciò assicura una riproduzione fluida senza interruzioni dovute a problemi di connessione.
+    \item \textbf{Supporto per i file di segmenti MPEG-TS}: hls.js supporta il formato di file MPEG-TS, che è comunemente utilizzato con HLS. I file video sono suddivisi in segmenti che vengono scaricati e riprodotti in sequenza per garantire una riproduzione continua.
+    \item \textbf{Caricamento dinamico dei segmenti}: hls.js carica in modo dinamico i segmenti video in base alla riproduzione corrente. Questo approccio consente di gestire file video di grandi dimensioni in modo efficiente, riducendo i tempi di buffering e consentendo una riproduzione fluida.
+    \item \textbf{Controllo della riproduzione}: La libreria offre controlli per avviare, mettere in pausa, riprendere, avanzare e riavvolgere la riproduzione del video. È possibile anche gestire eventi come la fine del video o gli errori di riproduzione.
+\end{itemize}
+Hls.js è ampiamente utilizzato per la riproduzione di video HLS nel browser e offre un modo efficace e affidabile per gestire lo streaming di contenuti video attraverso HLS. Grazie alla sua natura open-source, la libreria è in costante sviluppo e supporta una vasta gamma di funzionalità per migliorare l'esperienza di riproduzione dei video HLS.
+\subsubsection{Material-UI}
+\gls{MUI} è una libreria open-source per la creazione di interfacce utente reattive e basate sul design dei Material UI di Google. MUI è basata sul framework React e offre un set di componenti React riutilizzabili, stili predefiniti e strumenti per la creazione di applicazioni web moderne e attraenti. ~\footnote{\url{https://mui.com/}}\\
+Le principali caratteristiche di MUI sono:
+\begin{itemize}
+    \item \textbf{Componenti reattivi}: MUI fornisce una vasta gamma di componenti React, come pulsanti, modali, form, tabelle, navigazione e molto altro ancora. Questi componenti sono progettati per adattarsi e rispondere alle diverse dimensioni dello schermo, garantendo un'esperienza utente coerente su dispositivi desktop e mobili.
+    \item \textbf{Design basato su Material UI}: MUI segue le linee guida di Material Design di Google, offrendo uno stile di design moderno e pulito. I componenti MUI presentano animazioni fluide, icone Material Design e un'estetica visuale coerente.
+    \item \textbf{Personalizzazione e temi}: MUI consente di personalizzare i componenti e gli stili secondo le esigenze specifiche dell'applicazione. È possibile modificare i colori, le tipografie, gli spazi e altri aspetti dei componenti utilizzando i temi di MUI o sovrascrivendo le classi di stile.
+    \item \textbf{Supporto per responsive design}: MUI facilita la creazione di layout reattivi e adattabili. È possibile definire comportamenti diversi dei componenti in base alle dimensioni dello schermo, migliorando l'esperienza utente su dispositivi di diverse dimensioni.
+    \item \textbf{Gestione dello stato globale}: MUI offre supporto integrato per la gestione dello stato globale delle applicazioni utilizzando il contesto di React. Ciò consente di condividere dati tra i componenti senza dover passare manualmente le proprietà da un componente all'altro.
+    \item \textbf{Strumenti per lo sviluppo}: MUI fornisce strumenti di sviluppo come MUI Icons, che offre una vasta gamma di icone Material Design, e MUI Lab, che contiene componenti sperimentali e di nuova generazione per estendere le funzionalità di MUI.
+    \end{itemize}
+    MUI è ampiamente utilizzata nella comunità di sviluppatori React per creare interfacce utente moderne e attraenti. Grazie alla sua flessibilità, personalizzazione e conformità con il design Material UI, MUI semplifica la creazione di applicazioni web di alta qualità e dall'aspetto professionale.
+\subsubsection{Tus.js}
+Tus.js è una libreria JavaScript open-source che implementa il protocollo \gls{TUS} per la gestione di upload di file resumabili su server, semplifica l'implementazione del protocollo TUS nel browser, fornendo una API per la gestione dell'upload dei file e la comunicazione con il server che supporta il protocollo TUS.~\footnote{\url{https://github.com/tus/tus-js-client/}}
+Le principali caratteristiche di Tus.js sono:
+\begin{itemize}
+    \item \textbf{Gestione dell'upload resumabile}: Tus.js implementa il protocollo TUS, che consente di interrompere e riprendere l'upload dei file da dove si è interrotto, senza dover ricominciare da capo. Ciò rende l'upload di file di grandi dimensioni affidabile e consente agli utenti di riprendere l'upload da dove si sono interrotti.
+  \item \textbf{Supporto per file di grandi dimensioni}: Tus.js può gestire file di grandi dimensioni suddividendoli in segmenti più piccoli e caricandoli in modo incrementale. Questo permette di caricare file di dimensioni significative senza sovraccaricare la memoria del browser.
+  \item \textbf{Gestione delle interruzioni di connessione}: Tus.js è in grado di gestire interruzioni di connessione durante l'upload dei file. In caso di perdita di connessione o altri problemi di rete, Tus.js può riprendere l'upload dal punto esatto in cui si è interrotto una volta ripristinata la connessione.
+  \item \textbf{Eventi di upload}: La libreria offre una serie di eventi che possono essere utilizzati per monitorare lo stato dell'upload, come l'avanzamento dell'upload, le interruzioni, i completamenti e gli errori. Questi eventi consentono di implementare logiche personalizzate in base allo stato dell'upload.
+  \item \textbf{Personalizzazione}: Tus.js offre opzioni di personalizzazione per regolare il comportamento dell'upload, come la dimensione dei segmenti, i tempi limite e altro ancora. Questo consente di adattare l'upload alle esigenze specifiche dell'applicazione.
+\end{itemize}
+Tus.js è una scelta popolare per gli sviluppatori che necessitano di gestire l'upload di file di grandi dimensioni in modo affidabile e resumabile. Con Tus.js, è possibile semplificare l'implementazione di questa funzionalità nel browser, garantendo un'esperienza utente migliore durante l'upload dei file.
+\subsection{Tecnologie esterne}
+\subsubsection{Azure}
+Azure è una piattaforma di cloud computing, sviluppata da Microsoft nel 2010, permette di creare, testare, distribuire e gestire applicazioni e servizi tramite i data center di Microsoft.
+Offre una ampia varieta di servizi, come servizi di elaborazione, servizi di archiviazione e database, servizi di rete, servizi di intelligenza artificiale e servizi di sicurezza.\\
+Il vantaggio principale di Azure è la scalabilità, infatti permette di scalare le risorse di elaborazione e di rete in base alle esigenze dell'applicazione, inoltre permette di ridurre i costi di gestione, in quanto
+ci sono diversi piani di pagamento, che permettono di pagare solo le risorse utilizzate.\\
+\subsubsection{Azure Media Services}
+Azure Media Services è un servizio di cloud computing fornito da Microsoft Azure per la visualizzazione e la distribuzione di contenuti multimediali su Internet. È progettato per fornire un'infrastruttura scalabile e verificabile per la codifica, l'archiviazione, la protezione e la distribuzione di video, audio e altri contenuti multimediali in varie forme e dispositivi.
+Le principali caratteristiche di Azure Media Services sono:
+\begin{itemize}
+    \item \textbf{Codifica}: consente di convertire i file multimediali in diversi formati e bit-rate per adattarsi a diverse piattaforme e velocità di connessione. Supporta la codifica e la transcodifica di video in formati come H.264, VP9, MPEG-2 e audio in formati come AAC, MP3, Dolby Digital.
+    \item \textbf{Archiviazione}: permette di archiviare i file multimediali in modo sicuro e affidabile attraverso l'utilizzo di Azure Storage Account, un servizio di archiviazione di dati non strutturati come file, immagini e video; utilizza dei container per archiviare i file multimediali, che sono delle cartelle che contengono i file multimediali e i relativi metadati.
+    \item \textbf{Distribuzione}:
+    offre funzionalità di streaming per la distribuzione di contenuti multimediali in tempo reale o on-demand. Supporta lo streaming adattivo per garantire una riproduzione ottimale su diverse velocità di connessione e dispositivi.\\
+    \item \textbf{Protezione dei contenuti}: include funzionalità di protezione dei contenuti per proteggere i file multimediali da copie non autorizzate e accessi non autorizzati. Supporta la crittografia dei contenuti, la gestione dei DRM e la firma URL per garantire la sicurezza dei contenuti.
+    \item \textbf{Analisi dei contenuti}: offre funzionalità di analisi dei contenuti per estrarre informazioni utili dai file multimediali. Supporta la generazione di miniature, la trascrizione automatica, il riconoscimento facciale e la generazione di sottotitoli.
+\end{itemize}
+L'utilizzo di Azure Media Service offre vari vantaggi rispetto a un'infrastruttura di streaming video tradizionale, come la scalabilità, la sicurezza e la facilità di gestione. Grazie alla sua natura basata su cloud, Azure Media Services consente di ridurre i costi di gestione e di semplificare la distribuzione di contenuti multimediali su Internet.
+\subsubsection{Azure App Sevice}
+Azure App Service è un servizio di cloud computing offerto da Microsoft Azure che consente agli sviluppatori di creare, distribuire e gestire applicazioni web e mobili in modo rapido e scalabile. Azure App Service fornisce un ambiente di esecuzione completamente gestito per le applicazioni, eliminando la necessità di gestire l'infrastruttura sottostante.
+\subsubsection{Azure SQL Server}
+Azure SQL Server è un servizio di database relazionale completamente gestito che offre funzionalità di database SQL.~\footnote{\url{https://azure.microsoft.com/it-it/products/azure-sql/database/}}
+Offre una serie di vantaggi rispetto a un Server SQL tradizionale, come la facilità di gestione, la scalabilità e sicurezza.\\
+Il database non deve essere gestito in quanto Azure si occupa della gestione dell'infrastruttura, aggiornamenti delle patch di sicurezza e delle operazioni di manutenzione del server, consentendo agli sviluppatori di concentrarsi sulla logica di business e sull'applicazione dati.\\
+Inoltre permette di scalare sia orizzontalmente che verticalmente il database, in maniera automatica, in modo tale da adattarsi alle esigenze dell'applicazione.\\
+Un altro vantaggio è la sicurezza, in quanto integra funzionalità di sicurezza avanzate, come la crittografia dei dati in transito e a riposo, la protezione da minacce e la gestione degli accessi.\\
+È stato utilizzato per la gestione dei dati dell'applicazione, integrandosi con il backend dell'applicazione attraverso il context contenuto nel layer Data.\\
+\subsection{Strumenti utilizzati}
+\subsubsection{Visual Studio}
+Visual Studio è un \gls{IDE} sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.~\footnote{\url{https://visualstudio.microsoft.com/it/}}
+\subsubsection{Visual Studio Code}
+Visual Studio Code è un editor di codice sorgente sviluppato da Microsoft, permette di sviluppare applicazioni per Windows, Android, iOS e web, in modo efficiente.~\footnote{\url{https://code.visualstudio.com/}}
